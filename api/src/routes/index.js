@@ -9,7 +9,7 @@ const getTypesPokemon = require("../controllers/getTypesPokemon.js")
 const router = Router();
 
 router.get('/pokemons', getPokemons)
-router.get('/pokemons/:id', getPokemonById)
+router.get('/pokemons/:idPokemon', getPokemonById)
 router.get('/pokemons/', getPokemonByName)
 router.post('/pokemons', postPokemon)
 router.get('/types', getTypesPokemon)
