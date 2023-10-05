@@ -1,11 +1,19 @@
 const axios = require("axios");
 const url = "https://pokeapi.co/api/v2/pokemon/";
-const {Pokemon} = require("../db.js")
+const {Pokemon,PokemonType} = require("../db.js")
 
 const getPokemonById = async(req,res) => {
     const {idPokemon} = req.params;
     try {
-        const pokemonDB = await Pokemon.findByPk(idPokemon)
+        const pokemonDB = await Pokemon.findByPk(idPokemon,{
+            include:{
+                model:PokemonType,
+                attributes:["type"],
+                through:{
+                    attributes:[],
+                },
+            },
+        })
         if(pokemonDB !== null){
             return res.status(200).send(pokemonDB.dataValues)
         }

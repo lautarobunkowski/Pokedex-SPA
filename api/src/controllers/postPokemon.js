@@ -24,7 +24,13 @@ const postPokemon = async(req,res) => {
                 heigth: null || heigth,
                 weigth: null || weigth,
             },
-            include:PokemonType,
+            include:{
+                model:PokemonType,
+                attributes:["type"],
+                through:{
+                    attributes:[],
+                },
+            },
         })
 
         pokemon.addPokemonType(types)
