@@ -1,0 +1,15 @@
+.Landing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_landing{
+    width: 70%;
+    height: 60%;
+}
+
+.img_landing{
+    width: 100%;
+    height: auto;
+}
