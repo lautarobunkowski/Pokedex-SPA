@@ -2,7 +2,7 @@
 import Pokemon_logo from "./International_Pokémon_logo.png";
 import styles from "./Landing.module.css";
 // -----------components----------
-import Button from "../../components/button/Button.jsx";
+import Button from "../../components/button/Button";
 import { Link } from "react-router-dom";
 
 const Landing = () => {

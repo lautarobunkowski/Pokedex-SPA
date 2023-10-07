@@ -13,3 +13,8 @@ body, html{
 body{
   font-family: 'Kosugi Maru',sans-serif;
 }
+
+ul{
+  list-style: none;
+}
+
