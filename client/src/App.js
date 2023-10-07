@@ -19,6 +19,7 @@ function App() {
   const location = useLocation().pathname;
   return (
     <div className="App">
+      <div className='background_page'/>
       {location !== "/" && <Navbar/>}
       <Routes>
         <Route path='/'element={<Landing/>}/>

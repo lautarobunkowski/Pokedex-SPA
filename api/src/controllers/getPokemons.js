@@ -12,6 +12,10 @@ const pokeApi = async(url) => {
     const infoPokemons = await axios.all(pokePromises)
     
     return infoPokemons.map(p => {
+        const pokeTypes = p.types.map(type => {
+            return type.type.name
+        })
+        
         return {
             "abilities":p.abilities,
             "base_experience":p.base_experience,
@@ -23,7 +27,7 @@ const pokeApi = async(url) => {
             "order":p.order,
             "images":p.sprites.other["official-artwork"],
             "stats":p.stats,
-            "types":p.types,
+            "types":pokeTypes,
             "weight":p.weight,
         }
     })
