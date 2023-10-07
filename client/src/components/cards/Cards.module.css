@@ -3,11 +3,26 @@
     height: 100%;
     width: 100%;
     background-color: #00000031;
-    border-radius: 2rem;
+    border-radius: 2rem 0 0 2rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     align-content: flex-start;
     justify-content: center;
     gap: 2rem;
+    overflow-y: auto;
+}
+
+
+.Cards::-webkit-scrollbar{
+    width: 15px;
+}
+
+.Cards::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);        /* color of the tracking area */
+  }
+
+.Cards::-webkit-scrollbar-thumb {
+    background-color:rgba(0, 0, 0, 0.65);    /* color of the scroll thumb */
+    border-radius: 5px;
 }

@@ -2,9 +2,15 @@ import React from 'react'
 import styles from "./Card.module.css";
 
 const Card = (props) => {
+
   return (
     <div className={styles.Card}>
-      <img className={styles.img} src={props.images.front_default} alt={props.name} />
+      <div className={styles.img_background} style={
+      {
+        backgroundImage: `url("./utils/types_backgrounds/${props.types[0]}.jpg")`,
+      }
+    }/>
+      <img className={styles.img} src={props.images.front_default} alt={props.name}/>
       <div className={styles.info_pokemon}>
         <p>{props.name}</p>
         {

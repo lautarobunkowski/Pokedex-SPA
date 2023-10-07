@@ -3,13 +3,40 @@
     height: 250px;
     background-color: rgba(0, 0, 0, 0.177);
     border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
 }
 
 .info_pokemon{
-    /* background-color: white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: white;
+    width: 100%;
+}
+
+.info_pokemon p{
+    font-weight: 700;
+}
+
+.img_background{
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 200px;
+    width: 100%;
+    z-index: -1;
 }
 
 .img{
-    width: 200px;
+    width: 180px;
     height: auto;
 }
+
