@@ -1,6 +1,7 @@
 import Logo from "../../views/landing/International_Pokémon_logo.png";
 import styles from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
+import SearchBar from "../searchBar/SearchBar.jsx";
 
 const Navbar = () => {
   return (
@@ -31,6 +32,7 @@ const Navbar = () => {
                 </NavLink>
             </li>
         </ul>
+        <SearchBar/>
       </div>
     </div>
   )

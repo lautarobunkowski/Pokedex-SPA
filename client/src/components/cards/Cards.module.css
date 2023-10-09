@@ -35,7 +35,15 @@
     color: white;
     border: none;
     width: 2rem;
-    background-color: rgba(0, 0, 0, 0.552);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.button_page:hover{
+    background-color: rgba(49, 49, 49, 0.552)
+}
+
+.active{
+    border: 2px solid white;
 }
 
 .Cards::-webkit-scrollbar{

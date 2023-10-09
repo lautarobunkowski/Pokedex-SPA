@@ -23,3 +23,14 @@ export const getPagePokemons = (numberPage) => {
     }
 };
 
+export const getPokemonByName = (pkName) => {
+    const endpoint = "/characters/"
+    return async(dispatch) => {
+        const {data} = await axios(`${endpoint}${pkName}`)
+        return dispatch({
+            type: actions.GET_POKEMON_BY_NAME,
+            payload: data,
+        })
+    }
+}
+

@@ -7,7 +7,7 @@ import { FcNext, FcPrevious } from 'react-icons/fc';
 const Cards = () => {
   const dispatch = useDispatch()
   const {showPokemons, numberPage, allPokemons} = useSelector(state => state)
-  const lastPage = Math.floor(allPokemons.length / 12);
+  const lastPage = Math.round(allPokemons.length / 12);
 
   return (
     <div className={styles.Cards}>
@@ -26,7 +26,7 @@ const Cards = () => {
       
       <div className={styles.numberPage_container}>
         {numberPage !== 1 && <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage-1))}><FcPrevious/></button>}
-        <button className={styles.button_page}>{numberPage}</button>
+        <button className={`${styles.button_page} ${styles.active}`}>{numberPage}</button>
         <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+1))}>{numberPage+1}</button>
         <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+2))}>{numberPage+2}</button>
         <p className={styles.button_page}>...</p>

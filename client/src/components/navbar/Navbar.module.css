@@ -13,6 +13,11 @@
     width: auto;
 }
 
+.Navbar_information{
+    display: flex;
+    gap: 50px;
+}
+
 ul{
     display: flex;
     gap: 50px;
@@ -30,6 +35,10 @@ ul{
     align-items: center;
     width: auto;
     height: 100%;
+}
+
+.Navbar :global(.active){
+    color: black;
 }
 
 
