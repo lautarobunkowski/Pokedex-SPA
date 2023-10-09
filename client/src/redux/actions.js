@@ -16,3 +16,10 @@ export const getAllPokemons = () => {
     }
 };
 
+export const getPagePokemons = (numberPage) => {
+    return {
+        type: actions.GET_PAGE_POKEMONS,
+        payload: numberPage 
+    }
+};
+

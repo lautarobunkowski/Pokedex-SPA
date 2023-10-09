@@ -1,18 +1,42 @@
 .Cards{
-    padding: 2rem;
-    height: 100%;
-    width: 100%;
     background-color: #00000031;
-    border-radius: 2rem 0 0 2rem;
+    border-radius: 2rem;
+    overflow-y: auto;
+    height: auto;
+}
+
+.container_cards{
+    padding: 2rem;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    align-content: flex-start;
+    align-content: center;
     justify-content: center;
     gap: 2rem;
-    overflow-y: auto;
 }
 
+.numberPage_container{
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+}
+
+.numberPage_container p{
+    display: inline;
+}
+
+.button_page{
+    height: 2rem;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    width: 2rem;
+    background-color: rgba(0, 0, 0, 0.552);
+}
 
 .Cards::-webkit-scrollbar{
     width: 15px;
