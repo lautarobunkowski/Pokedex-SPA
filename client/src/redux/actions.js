@@ -26,11 +26,15 @@ export const getPagePokemons = (numberPage) => {
 export const getPokemonByName = (pkName) => {
     const endpoint = `/pokemons/name?name=`
     return async(dispatch) => {
-        const {data} = await axios(`${endpoint}${pkName}`)
-        return dispatch({
-            type: actions.GET_POKEMON_BY_NAME,
-            payload: data,
-        })
+        try {
+            const {data} = await axios(`${endpoint}${pkName}`)
+            return dispatch({
+                type: actions.GET_POKEMON_BY_NAME,
+                payload: data,
+            })
+        } catch (error) {
+           window.alert(error.message) 
+        }  
     }
 }
 

@@ -1,25 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from "./SearchBar.module.css";
 import Button from "../button/Button";
-import { useDispatch } from "react-redux";
-import { getPokemonByName } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { getPokemonByName, getPagePokemons } from "../../redux/actions";
 
 
 const SearchBar = () => {
-  const regexUnicode = /^\w+$/;
-    const dispatch = useDispatch();
-    const [name, setName] = useState("")
+  const regex= /^\w+$/;
+  const dispatch = useDispatch();
+  const [name, setName] = useState("")
+  const numberPage = useSelector(state => state.numberPage)
 
-    const handleChange = (event) => {
-        setName(event.target.value)
-    }
+  const handleChange = (event) => {
+    setName(event.target.value)
+  }
 
-    const handleClick = () => {
-      if(regexUnicode.test(name)){
-        return dispatch(getPokemonByName(name))
-      }
-      console.error('la busqueda debe de contener caracteres validos')
+  const handleClick = () => {
+    if(regex.test(name)){
+      return dispatch(getPokemonByName(name))
     }
+    window.alert('la busqueda debe de contener caracteres validos')
+  }
+
+  useEffect(() => {
+    if (name.length === 0) {
+      dispatch(getPagePokemons(numberPage));
+    }
+  }, [name, dispatch, numberPage]);
 
   return (
     <div className={styles.SearchBar}>
