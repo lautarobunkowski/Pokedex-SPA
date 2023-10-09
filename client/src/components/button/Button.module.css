@@ -14,7 +14,6 @@
 }
 
 .button:hover{
-    color: #3363AF;
     border: 2px solid #3363AF;
-    background-color: transparent;
+    background-color: #3d75ce;
 }

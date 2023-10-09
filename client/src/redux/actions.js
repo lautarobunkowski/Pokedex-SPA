@@ -24,7 +24,7 @@ export const getPagePokemons = (numberPage) => {
 };
 
 export const getPokemonByName = (pkName) => {
-    const endpoint = "/characters/"
+    const endpoint = `/pokemons/name?name=`
     return async(dispatch) => {
         const {data} = await axios(`${endpoint}${pkName}`)
         return dispatch({

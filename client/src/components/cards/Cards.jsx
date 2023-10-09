@@ -24,15 +24,18 @@ const Cards = () => {
         }
       </div>
       
-      <div className={styles.numberPage_container}>
-        {numberPage !== 1 && <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage-1))}><FcPrevious/></button>}
-        <button className={`${styles.button_page} ${styles.active}`}>{numberPage}</button>
-        <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+1))}>{numberPage+1}</button>
-        <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+2))}>{numberPage+2}</button>
-        <p className={styles.button_page}>...</p>
-        <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(lastPage))}>{lastPage}</button>
-        <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+1))}><FcNext/></button>
-      </div>
+      {showPokemons.length !== 1?
+        <div className={styles.numberPage_container}>
+          {numberPage !== 1 && <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage-1))}><FcPrevious/></button>}
+          <button className={`${styles.button_page} ${styles.active}`}>{numberPage}</button>
+          <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+1))}>{numberPage+1}</button>
+          <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+2))}>{numberPage+2}</button>
+          <p className={styles.button_page}>...</p>
+          <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(lastPage))}>{lastPage}</button>
+          <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+1))}><FcNext/></button>
+        </div>:
+        null
+      }
     </div>
   )
 }
