@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from "./SearchBar.module.css";
 import Button from "../button/Button";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemonByName, getPagePokemons } from "../../redux/actions";
 
@@ -37,7 +38,9 @@ const SearchBar = () => {
       name="" 
       placeholder='Search'
       />
-      <Button onClick={handleClick} text="Search"/>
+      <Link to="/home">
+        <Button link="/home" onClick={handleClick} text="Search"/>
+      </Link>
     </div>
   )
 }

@@ -9,6 +9,7 @@ const initialState = {
 const rootReducer = (state=initialState, {type, payload}) => {
     switch (type) {
         case actions.GET_ALL_POKEMONS:
+            console.log(state.numberPage)
             return { ...state, allPokemons:payload, showPokemons: payload.slice(0,12)};
         case actions.GET_PAGE_POKEMONS:
             const pokemonPerPage = 12;

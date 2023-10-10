@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 
 const Card = (props) => {
   const dispatch = useDispatch()
-  const {numberPage, showPokemons} = useSelector(state => state)
+  const numberPage = useSelector(state => state.numberPage)
+  const showPokemons = useSelector(state => state.showPokemons)
   const handleClick = () => {
     dispatch(getPagePokemons(numberPage))
   }

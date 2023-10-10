@@ -4,7 +4,6 @@ const {Pokemon, PokemonType} = require("../db.js")
 
 const getPokemonByName = async(req,res) => {
     const {name} = req.query;
-    console.log(name)
     try {
         const pokemonDB = await Pokemon.findOne({
             where: {name:name},

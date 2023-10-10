@@ -6,9 +6,11 @@ import { FcNext, FcPrevious } from 'react-icons/fc';
 
 const Cards = () => {
   const dispatch = useDispatch()
-  const {showPokemons, numberPage, allPokemons} = useSelector(state => state)
-  const lastPage = Math.round(allPokemons.length / 12);
+  const showPokemons = useSelector(state => state.showPokemons)
+  const numberPage = useSelector(state => state.numberPage)
+  const allPokemons = useSelector(state => state.allPokemons)
 
+  const lastPage = Math.round(allPokemons.length / 12);
   return (
     <div className={styles.Cards}>
       <div className={styles.container_cards}>
