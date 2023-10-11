@@ -7,3 +7,14 @@
   align-items: center;
   justify-content: flex-start;
 }
+
+.Background{
+  position: absolute;
+  z-index: -10;
+  background-image: url("../public/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}

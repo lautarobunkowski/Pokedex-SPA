@@ -4,7 +4,6 @@
 // ---------  STYLES  ---------
 import './App.css';
 // ---------  COMPONENTS  ---------
-import Background_page from "./components/background_page/Background_page";
 import Landing from "./views/landing/Landing";
 import Home from "./views/home/Home";
 import Detail from "./views/detail/Detail";
@@ -22,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <Background_page color={'yellow'}/>
+      <div className="Background"/>
       {location !== "/" && <Navbar/>}
       <Routes>
         <Route path='/'element={<Landing/>}/>

@@ -11,6 +11,7 @@ const Detail = () => {
   const [pokemon, setPokemon] = useState({})
 
 
+
   useEffect(() => {
     const getPokemonById = async() => {
       try {
@@ -27,6 +28,11 @@ const Detail = () => {
     !pokemon.images? 
     <Loader/>:
     <div className={styles.Detail}>
+      <div className={styles.background_detail} style={{
+      background: "#82B4B9"
+      }}>
+        <p>{pokemon.name.toUpperCase()}</p>
+      </div>
       <div className={styles.container_info}>
         <h1>{pokemon.name}</h1>
       </div>
