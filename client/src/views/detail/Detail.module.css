@@ -1,3 +1,17 @@
 .Detail{
     flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 10% 0 10%;
+}
+
+.Deatil img{
+    height: 70%;
+    width: auto;
+}
+
+.App{
+    background-color: red;
 }

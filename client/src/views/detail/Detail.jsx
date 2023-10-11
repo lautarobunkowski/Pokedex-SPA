@@ -3,11 +3,12 @@ import styles from "./Detail.module.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loader from "../../components/loader/Loader";
 
 const Detail = () => {
   const {idPokemon} = useParams();
   const endpoint = "/pokemons/"
-  const {pokemon, setPokemon} = useState()
+  const [pokemon, setPokemon] = useState({})
 
 
   useEffect(() => {
@@ -21,10 +22,22 @@ const Detail = () => {
     }
     getPokemonById()
   },[idPokemon, setPokemon])
-  console.log(pokemon)
+  
   return (
+    !pokemon.images? 
+    <Loader/>:
     <div className={styles.Detail}>
-      {/* <h1>{pokemon.name}</h1> */}
+      <div className={styles.container_info}>
+        <h1>{pokemon.name}</h1>
+      </div>
+      <div className={styles.container_img}>
+        <p>{pokemon.weight}</p>
+        <p>{pokemon.height}</p>
+        <img src={pokemon.images.front_default} alt={pokemon.name} />
+      </div>
+      <div className={styles.container_slice}>
+        Slice
+      </div>
     </div>
   )
 }

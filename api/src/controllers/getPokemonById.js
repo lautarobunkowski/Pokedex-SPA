@@ -18,7 +18,24 @@ const getPokemonById = async(req,res) => {
             return res.status(200).send(pokemonDB.dataValues)
         }
         const {data} = await axios(url+idPokemon)
-        res.status(200).send(data)
+        const pokeTypes = data.types.map(type => {
+            return type.type.name
+        })
+        const pokemon = {
+            "abilities":data.abilities,
+            "base_experience":data.base_experience,
+            "forms":data.forms,
+            "height":data.height,
+            "id":data.id,
+            // "moves":p.moves,
+            "name":data.name,
+            "order":data.order,
+            "images":data.sprites.other["official-artwork"],
+            "stats":data.stats,
+            "types":pokeTypes,
+            "weight":data.weight,
+        }
+        res.status(200).send(pokemon)
     } catch (error) {
         if(error.response.status === 404) {
             return res.status(404).send(`Pokemon con id ${idPokemon} no Encontrado`)

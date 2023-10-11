@@ -1,8 +1,10 @@
-import { getPagePokemons } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Cards.module.css";
 import Card from "../card/Card";
 import { FcNext, FcPrevious } from 'react-icons/fc';
+import { useEffect } from "react";
+import {getPagePokemons} from "../../redux/actions";
+import Loader from "../loader/Loader";
 
 const Cards = () => {
   const dispatch = useDispatch()
@@ -11,11 +13,16 @@ const Cards = () => {
   const allPokemons = useSelector(state => state.allPokemons)
 
   const lastPage = Math.round(allPokemons.length / 12);
+
+  useEffect(() => {
+    dispatch(getPagePokemons(numberPage))
+  },[])
+
   return (
     <div className={styles.Cards}>
       <div className={styles.container_cards}>
         {
-          showPokemons.map(pokemon => {
+          showPokemons.length >= 1?showPokemons.map(pokemon => {
             return <Card
             id={pokemon.id} 
             key={pokemon.id}
@@ -23,10 +30,12 @@ const Cards = () => {
             images={pokemon.images} 
             types={pokemon.types}
             />
-          })
+          }):
+          <Loader/>
         }
       </div>
       
+      {/* Paginacion --------------------------------------- */}
       {showPokemons.length !== 1?
         <div className={styles.numberPage_container}>
           {numberPage !== 1 && <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage-1))}><FcPrevious/></button>}
