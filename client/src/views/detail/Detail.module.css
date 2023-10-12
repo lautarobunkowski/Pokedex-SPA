@@ -6,11 +6,13 @@
 
 .Detail{
     flex: 1;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0 10% 0 10%;
+    padding: 0 5% 0 5%;
     flex-wrap: wrap;
 }
 
@@ -90,38 +92,89 @@
 
 .container_img{
     position: relative;
-    width: 700px;
-    /* flex: 1; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .img{
-    height: 600px;
-    width: auto;
+    width: 65%;
+}
+
+.medidor_container{
+    top: -5px;
+    left: 50px;
+    position: relative;
+    width:35%;
 }
 
 .medidor_1{
-    top: 50px;
-    left: -100px;
-    position: absolute;
-    height: 500px;
+    height: 100%;
+    width: 100%;
 }
 
 .weight{
+    display: none;
     position: absolute;
     font-weight: 400;
     font-size: 1.3rem;
-    bottom: 80px;
-    left: -30px;
+    bottom: 220px;
+    left: 150px;
     color: rgba(0, 0, 0, 0.403);
 }
 
 .height{
+    display: none;
     position: absolute;
-    bottom: 290px;
-    left: -160px;
+    bottom: 400px;
+    left: 30px;
     transform: rotate(-90deg);
     font-weight: 400;
     color: rgba(0, 0, 0, 0.403);
     font-size: 1.3rem;
 }
 
+.container_slice{
+    height: 100%;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail_cards{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media(max-width: 1700px) {
+    .info_name{
+        font-size: 3rem;
+    }
+}
+
+@media(max-width: 1300px) {
+    .Detail{
+        grid-template-columns: auto 1fr ;
+        grid-template-rows: auto auto;
+    }
+
+    .container_slice{
+        width: 100%;
+        flex-direction: row;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        justify-content: space-evenly;
+    }
+
+    .detail_cards{
+        width: auto;
+        overflow-x: scroll;
+        flex-direction: row;
+        gap: 2rem;
+    }
+}

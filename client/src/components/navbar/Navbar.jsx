@@ -9,7 +9,7 @@ const Navbar = () => {
         <NavLink to="/home" className={styles.NavLink_logo}>
             <img src={Logo} className={styles.logo_navbar} alt="Pokemón"/>
         </NavLink>
-      <div className={styles.Navbar_information}>
+        <div className={styles.Navbar_information}>
         <ul>
             <li>
                 <NavLink to="/home" className={styles.NavLink}>
