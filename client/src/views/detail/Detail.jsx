@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "../../components/loader/Loader";
+import getColorDetailByType from "./getColorDetailByType";
+import medidor_1 from "./medidor_1.png";
 
 const Detail = () => {
   const {idPokemon} = useParams();
   const endpoint = "/pokemons/"
   const [pokemon, setPokemon] = useState({})
-
-
 
   useEffect(() => {
     const getPokemonById = async() => {
@@ -26,20 +26,35 @@ const Detail = () => {
   
   return (
     !pokemon.images? 
-    <Loader/>:
+    <div className={styles.loader}>
+      <Loader/>
+    </div>:
     <div className={styles.Detail}>
       <div className={styles.background_detail} style={{
-      background: "#82B4B9"
+      background:`${getColorDetailByType(pokemon.types[0])}`
       }}>
         <p>{pokemon.name.toUpperCase()}</p>
       </div>
       <div className={styles.container_info}>
-        <h1>{pokemon.name}</h1>
+        <h1 className={styles.info_name}>{pokemon.name.toUpperCase()}</h1>
+        <div className={styles.stats_container}>
+        {
+          pokemon.stats.map(stat => {
+            return(
+              <div className={styles[`${stat.name}_container`]}>
+                <p>{stat.name}</p>
+                <p>{stat.base_state}</p>
+              </div>
+            )
+          })
+        }
+        </div>
       </div>
       <div className={styles.container_img}>
-        <p>{pokemon.weight}</p>
-        <p>{pokemon.height}</p>
-        <img src={pokemon.images.front_default} alt={pokemon.name} />
+        <img className={styles.medidor_1} src={medidor_1} alt="medidor_1" />
+        <p className={styles.weight}>Weight - {pokemon.weight / 10} Kg</p>
+        <p className={styles.height}>Height - {pokemon.height * 10} Cm</p>
+        <img className={styles.img} src={pokemon.images.front_default} alt={pokemon.name} />
       </div>
       <div className={styles.container_slice}>
         Slice

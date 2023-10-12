@@ -21,6 +21,12 @@ const getPokemonById = async(req,res) => {
         const pokeTypes = data.types.map(type => {
             return type.type.name
         })
+        const pokeStats = data.stats.map(stat => {
+            return {
+                "name":stat.stat.name,
+                "base_state":stat.base_stat
+            }
+        })
         const pokemon = {
             "abilities":data.abilities,
             "base_experience":data.base_experience,
@@ -31,16 +37,16 @@ const getPokemonById = async(req,res) => {
             "name":data.name,
             "order":data.order,
             "images":data.sprites.other["official-artwork"],
-            "stats":data.stats,
+            "stats":pokeStats,
             "types":pokeTypes,
             "weight":data.weight,
         }
         res.status(200).send(pokemon)
     } catch (error) {
-        if(error.response.status === 404) {
-            return res.status(404).send(`Pokemon con id ${idPokemon} no Encontrado`)
-        }
-        res.status(500).send(error)
+        // if(error.response.status === 404) {
+        //     return res.status(404).send(`Pokemon con id ${idPokemon} no Encontrado`)
+        // }
+        res.status(500).send(error.message)
     }
 }
 
