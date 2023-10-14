@@ -6,6 +6,7 @@ import styles from "./Home.module.css";
 // -----------components------------
 import Cards from "../../components/cards/Cards";
 import Loader from "../../components/loader/Loader";
+import axios from "axios";
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
 
   useEffect(() => {
       dispatch(getAllPokemons());
+      axios("/types")
   },[dispatch])
 
   return (

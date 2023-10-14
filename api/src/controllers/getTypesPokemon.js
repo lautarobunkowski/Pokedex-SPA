@@ -16,7 +16,6 @@ const getTypesPokemon = async(req,res) => {
                     type:e
                 }
             })
-            console.log(pokemonType)
             return pokemonType.dataValues
         })
 

@@ -1,23 +1,27 @@
-import React from 'react'
-import styles from "./Detail.module.css";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+// hooks -----------------------
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Loader from "../../components/loader/Loader";
-import getColorDetailByType from "./getColorDetailByType";
-import medidor_1 from "./medidor_1.png";
-import Card from "../../components/card/Card";
-import { getDetailPokemons } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+// estilos -------------------------
+import styles from "./Detail.module.css";
+// components ------------------------
+import Loader from "../../components/loader/Loader";
+import Card from "../../components/card/Card";
+import { BiUpArrow, BiDownArrow } from 'react-icons/bi';
+import medidor_1 from "./medidor_1.png";
+// utils --------------------------------
+import getColorDetailByType from "./getColorDetailByType";
+import { getDetailPokemons } from "../../redux/actions";
 
 const Detail = () => {
   const dispatch = useDispatch();
-  const {idPokemon} = useParams();
+  let {idPokemon} = useParams();
+
   const endpoint = "/pokemons/";
+
   const detailPokemons = useSelector(state => state.detailPokemons)
-
-  const [pokemon, setPokemon] = useState({});
-
+  const [pokemon, setPokemon] = useState({}); 
   useEffect(() => {
     const getPokemonById = async() => {
       try {
@@ -28,9 +32,9 @@ const Detail = () => {
       }
     }
     getPokemonById()
+
     dispatch(getDetailPokemons(idPokemon))
-  },[idPokemon, setPokemon])
-  console.log(detailPokemons)
+  },[idPokemon, setPokemon, dispatch])
 
   return (
     !pokemon.images? 
@@ -67,10 +71,9 @@ const Detail = () => {
         <img className={styles.img} src={pokemon.images.front_default} alt={pokemon.name} />
       </div>
       <div className={styles.container_slice}>
-        <button>Anterior</button>
         <div className={styles.detail_cards}>
           {
-            detailPokemons.map(pokemon => {
+            detailPokemons.length !== 3?<Loader/>:detailPokemons.map(pokemon => {
               return <Card
               id={pokemon.id} 
               name={pokemon.name}
@@ -80,7 +83,14 @@ const Detail = () => {
             })
           }
         </div>
-        <button>Siguiente</button>
+        <div className={styles.slice_buttons}>
+          <Link to={`/${Number(idPokemon)-1}`}>
+            <BiUpArrow/>
+          </Link>
+          <Link to={`/${Number(idPokemon)+1}`}>
+            <BiDownArrow/>
+          </Link>
+        </div>
       </div>
     </div>
   )

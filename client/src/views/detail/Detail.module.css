@@ -14,6 +14,7 @@
     width: 100%;
     padding: 0 5% 0 5%;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .background_detail{
@@ -53,6 +54,7 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    max-width: 30vw;
 }
 
 .info_name{
@@ -98,14 +100,14 @@
 }
 
 .img{
-    width: 65%;
+    width: 60%;
 }
 
 .medidor_container{
     top: -5px;
     left: 50px;
     position: relative;
-    width:35%;
+    width: 25%;
 }
 
 .medidor_1{
@@ -114,46 +116,69 @@
 }
 
 .weight{
-    display: none;
     position: absolute;
     font-weight: 400;
     font-size: 1.3rem;
-    bottom: 220px;
-    left: 150px;
-    color: rgba(0, 0, 0, 0.403);
+    bottom: 10%;
+    left: 20%;
+    color: rgb(0, 0, 0);
 }
 
 .height{
-    display: none;
     position: absolute;
-    bottom: 400px;
-    left: 30px;
+    bottom: 45%;
+    left: -35%;
     transform: rotate(-90deg);
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.403);
+    color: rgb(0, 0, 0);
     font-size: 1.3rem;
 }
 
 .container_slice{
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 2rem;
     height: 100%;
-    width: 300px;
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.slice_buttons{
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    height: 150px;
+}
+
+.slice_buttons *{
+    border: none;
+    background: none;
+    color: rgb(45, 45, 45);
+    font-size: 2.5rem;
 }
 
 .detail_cards{
     height: 100%;
+    width: 250px;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 @media(max-width: 1700px) {
     .info_name{
         font-size: 3rem;
+    }  
+
+    .container_info{
+        max-width: none;
     }
 }
 
@@ -164,17 +189,40 @@
     }
 
     .container_slice{
+        overflow-y: auto;
+        height: 100%;
         width: 100%;
-        flex-direction: row;
+        flex-direction: column;
         grid-column-start: 1;
         grid-column-end: 3;
         justify-content: space-evenly;
     }
 
     .detail_cards{
-        width: auto;
-        overflow-x: scroll;
+        width: 100%;
         flex-direction: row;
-        gap: 2rem;
+    }
+
+    .slice_buttons{
+        width: 200px;
+        height: auto;
+        flex-direction: row;
+    }
+
+    .slice_buttons *{
+        display: none;
+    }
+}
+
+@media(max-height: 940px) {
+    .detail_cards{
+        height: 850px;
+        margin-top: 100px;
+    }
+}
+
+@media(max-height: 800px) {
+    .detail_cards{
+        margin-top: 300px;
     }
 }

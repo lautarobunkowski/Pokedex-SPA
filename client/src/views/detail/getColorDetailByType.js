@@ -35,7 +35,7 @@ const getColorDetailByType = (type) => {
     case 'steel':
         return "#55889E"
     case 'water':
-        return "#329339"
+        return "#62AFDE"
     default:
         return "transparent"
     }

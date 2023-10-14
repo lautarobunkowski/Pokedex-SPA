@@ -11,6 +11,11 @@ const postPokemon = async(req,res) => {
         if(types.length < 2 || health < 0 || attack < 0 || defense < 0 || speed < 0 || heigth < 0 || weigth < 0){
             return res.status(400).send({error:"Datos Incorrectos"})
         }
+
+        const idsArray = await PokemonType.findAll({
+            where:{type: types}
+        }).then( array => array.map(e => e.id))
+
         const [pokemon, created] = await Pokemon.findOrCreate({
             where:{name},
             defaults:{
@@ -24,16 +29,9 @@ const postPokemon = async(req,res) => {
                 heigth: null || heigth,
                 weigth: null || weigth,
             },
-            // include:{
-            //     model:PokemonType,
-            //     attributes:["type"],
-            //     through:{
-            //         attributes:[],
-            //     },
-            // },
         })
 
-        pokemon.addPokemonType(types)
+        pokemon.addPokemonType(idsArray) // de mi modelo relaciono el modelo de tipos pasando un array con los ID's de cada tipo 
         if(created) return res.status(200).send(pokemon)
         res.status(200).send(`Ya hay un Pokemon creado con el nombre ${name}`)
 

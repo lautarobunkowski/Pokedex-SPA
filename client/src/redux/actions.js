@@ -41,13 +41,17 @@ export const getPokemonByName = (pkName) => {
 export const getDetailPokemons = (idPokemon) => {
     const endpoint = "/pokemons/"
     return async(dispatch) => {
-        const {data:pokemon1}= await axios(endpoint+idPokemon)
-        const {data:pokemon2} = await axios(`${endpoint}${Number(idPokemon)+1}`)
-        const {data:pokemon3} = await axios(`${endpoint}${Number(idPokemon)+2}`)
-        return dispatch({
-                type: actions.GET_DETAIL_POKEMONS,
-                payload: [pokemon1, pokemon2, pokemon3] 
+        try {
+            const id = [Number(idPokemon)-1, idPokemon, Number(idPokemon)+1]
+            const responses = await axios.all(id.map(pokemon => axios(`${endpoint}${pokemon}`)))
+            const pokemons = responses.map(response => response.data)
+            return dispatch({
+                    type: actions.GET_DETAIL_POKEMONS,
+                    payload: pokemons
             }
         )
+        } catch (error) {
+            window.alert(error.message)
+        }
     }
 }
