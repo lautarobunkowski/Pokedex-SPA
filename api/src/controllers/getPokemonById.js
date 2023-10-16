@@ -1,13 +1,13 @@
 const axios = require("axios");
 const url = "https://pokeapi.co/api/v2/pokemon/";
-const {Pokemon,PokemonType} = require("../db.js")
+const {Pokemon,Type} = require("../db.js")
 
 const getPokemonById = async(req,res) => {
     const {idPokemon} = req.params;
     try {
         const pokemonDB = await Pokemon.findByPk(idPokemon,{
             include:{
-                model:PokemonType,
+                model:Type,
                 attributes:["type"],
                 through:{
                     attributes:[],
@@ -15,6 +15,9 @@ const getPokemonById = async(req,res) => {
             },
         })
         if(pokemonDB !== null){
+            const typesArray = pokemonDB.dataValues.types.map((type) => type.type);
+            pokemonDB.dataValues.types = typesArray;
+            
             return res.status(200).send(pokemonDB.dataValues)
         }
         const {data} = await axios(url+idPokemon)
@@ -36,7 +39,7 @@ const getPokemonById = async(req,res) => {
             // "moves":p.moves,
             "name":data.name,
             "order":data.order,
-            "images":data.sprites.other["official-artwork"],
+            "image":data.sprites.other["official-artwork"].front_default,
             "stats":pokeStats,
             "types":pokeTypes,
             "weight":data.weight,

@@ -38,6 +38,12 @@ export const getPokemonByName = (pkName) => {
     }
 }
 
+export const clearData = () => {
+    return {
+        type: actions.CLEAR_DATA
+    }
+}
+
 export const getDetailPokemons = (idPokemon) => {
     const endpoint = "/pokemons/"
     return async(dispatch) => {
@@ -50,6 +56,32 @@ export const getDetailPokemons = (idPokemon) => {
                     payload: pokemons
             }
         )
+        } catch (error) {
+            window.alert(error.message)
+        }
+    }
+}
+
+export const getPokemonTypes = () => {
+    const endpoint = "/types"
+    return async(dispatch) => {
+        const {data} = await axios(endpoint)
+        return dispatch({
+            type: actions.GET_POKEMON_TYPES,
+            payload: data
+        })
+    }
+}
+
+export const createPokemon = (pokemon) => {
+    const endpoint = "/pokemons/"
+    return async(dispatch) => {
+        try {
+            const {data} = await axios.post(endpoint,pokemon)
+            return dispatch({
+                type: actions.CREATE_POKEMON,
+                payload: data,
+            })
         } catch (error) {
             window.alert(error.message)
         }

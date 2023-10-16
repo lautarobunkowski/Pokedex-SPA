@@ -1,12 +1,11 @@
 import React from 'react'
 import { useEffect } from "react";
-import { getAllPokemons } from "../../redux/actions";
+import { getAllPokemons} from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Home.module.css";
 // -----------components------------
 import Cards from "../../components/cards/Cards";
 import Loader from "../../components/loader/Loader";
-import axios from "axios";
 
 
 const Home = () => {
@@ -15,7 +14,6 @@ const Home = () => {
 
   useEffect(() => {
       dispatch(getAllPokemons());
-      axios("/types")
   },[dispatch])
 
   return (

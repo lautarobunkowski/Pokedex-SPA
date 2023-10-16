@@ -32,12 +32,10 @@ const Detail = () => {
       }
     }
     getPokemonById()
-
     dispatch(getDetailPokemons(idPokemon))
   },[idPokemon, setPokemon, dispatch])
-
   return (
-    !pokemon.images? 
+    !pokemon.image? 
     <div className={styles.loader}>
       <Loader/>
     </div>:
@@ -68,7 +66,7 @@ const Detail = () => {
           <p className={styles.weight}>Weight - {pokemon.weight / 10} Kg</p>
           <p className={styles.height}>Height - {pokemon.height * 10} Cm</p>
         </div>
-        <img className={styles.img} src={pokemon.images.front_default} alt={pokemon.name} />
+        <img className={styles.img} src={pokemon.image} alt={pokemon.name} />
       </div>
       <div className={styles.container_slice}>
         <div className={styles.detail_cards}>
@@ -77,7 +75,7 @@ const Detail = () => {
               return <Card
               id={pokemon.id} 
               name={pokemon.name}
-              images={pokemon.images} 
+              image={pokemon.image} 
               types={pokemon.types}
               />
             })

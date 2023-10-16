@@ -3,8 +3,10 @@ import * as actions from "./action-types";
 const initialState = {
     allPokemons:[],
     showPokemons:[],
+    searchPokemon:[],
     numberPage: 1,
-    detailPokemons:[]
+    detailPokemons:[],
+    pokemonTypes: []
 }
 
 const rootReducer = (state=initialState, {type, payload}) => {
@@ -22,9 +24,15 @@ const rootReducer = (state=initialState, {type, payload}) => {
 
             return {...state, showPokemons: state.allPokemons.slice(startIdx, endIdx), numberPage: payload}
         case actions.GET_POKEMON_BY_NAME:
-            return {...state, showPokemons: [payload]}
+            return {...state, searchPokemon: [payload]}
+        case actions.CLEAR_DATA:
+            return {...state, searchPokemon: []}
         case actions.GET_DETAIL_POKEMONS:
             return {...state, detailPokemons: payload}
+        case actions.GET_POKEMON_TYPES:
+            return {...state, pokemonTypes: payload}
+        case actions.CREATE_POKEMON:
+            return {...state, allPokemons: [...state.allPokemons, payload]}
         default:
             return {...state}
     }

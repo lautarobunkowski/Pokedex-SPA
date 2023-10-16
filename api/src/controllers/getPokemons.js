@@ -1,6 +1,6 @@
 const axios = require("axios")
 const url = "https://pokeapi.co/api/v2/pokemon?limit=151";
-const {Pokemon} = require("../db.js")
+const {Pokemon, Type} = require("../db.js")
 
 const pokeApi = async(url) => {
     const {data} = await axios(url)
@@ -25,7 +25,7 @@ const pokeApi = async(url) => {
             // "moves":p.moves,
             "name":p.name,
             "order":p.order,
-            "images":p.sprites.other["official-artwork"],
+            "image":p.sprites.other["official-artwork"].front_default,
             "stats":p.stats,
             "types":pokeTypes,
             "weight":p.weight,
@@ -34,9 +34,19 @@ const pokeApi = async(url) => {
 }
 
 const pokeDB = async(model) => {
-    const data = await model.findAll()
+    const data = await model.findAll({
+        include:{
+            model:Type,
+            attributes:["type"],
+            through:{
+                attributes:[],
+            },
+        },
+    })
+
     return data.map(e => {
-        return {...e.dataValues}
+        const typesArray = e.dataValues.types.map((type) => type.type);
+        return {...e.dataValues, types:[...typesArray]}
     })
 }
 

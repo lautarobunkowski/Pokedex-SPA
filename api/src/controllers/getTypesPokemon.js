@@ -1,6 +1,6 @@
 const axios = require("axios")
 const url = 'https://pokeapi.co/api/v2/type'
-const {PokemonType} = require("../db.js")
+const {Type} = require("../db.js")
 
 const getTypesPokemon = async(req,res) => {
     try {
@@ -10,11 +10,9 @@ const getTypesPokemon = async(req,res) => {
         })
 
         const pokemonTypesPromises = pokemonTypesNames.map(async e => {
-            const [pokemonType] = await PokemonType.findOrCreate({
+            const [pokemonType] = await Type.findOrCreate({
                 where:{type:e},
-                defaults:{
-                    type:e
-                }
+                defaults:{type:e}
             })
             return pokemonType.dataValues
         })

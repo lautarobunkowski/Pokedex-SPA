@@ -1,0 +1,25 @@
+/* .Cards{
+    background-color: #00000031;
+    border-radius: 2rem;
+    height: auto;
+    flex: 1;
+} */
+
+.Cards{
+    width: 100%;
+    flex: 1 1;
+    padding: 20px 10% 20px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_cards{
+    width: auto;
+    background-color: #00000031;
+    border-radius: 2rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

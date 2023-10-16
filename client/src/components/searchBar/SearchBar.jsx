@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from "./SearchBar.module.css";
 import Button from "../button/Button";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getPokemonByName, getPagePokemons } from "../../redux/actions";
+import { useDispatch } from "react-redux";
+import { getPokemonByName} from "../../redux/actions";
 
 
 const SearchBar = () => {
   const regex= /^\w+$/;
   const dispatch = useDispatch();
   const [name, setName] = useState("")
-  const numberPage = useSelector(state => state.numberPage)
 
   const handleChange = (event) => {
     setName(event.target.value)
@@ -23,12 +22,6 @@ const SearchBar = () => {
     window.alert('la busqueda debe de contener caracteres validos')
   }
 
-  useEffect(() => {
-    if (name.length === 0) {
-      dispatch(getPagePokemons(numberPage));
-    }
-  }, [name, dispatch, numberPage]);
-
   return (
     <div className={styles.SearchBar}>
       <input 
@@ -38,8 +31,8 @@ const SearchBar = () => {
       name="" 
       placeholder='Search'
       />
-      <Link to="/home">
-        <Button link="/home" onClick={handleClick} text="Search"/>
+      <Link to="/search">
+        <Button onClick={handleClick} text="Search"/>
       </Link>
     </div>
   )

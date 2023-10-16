@@ -1,0 +1,76 @@
+.form_container{
+    flex: 1;
+    padding: 20px 10% 20px 10%;
+    width: 100%;
+    overflow: hidden;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    background: rgba(0, 0, 0, 0.357);
+    max-width: 500px;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 0.5rem;
+}
+
+.name_container,
+.image_container,
+.health_container,
+.attack_container,
+.defense_container,
+.speed_container,
+.height_container,
+.weight_container{
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form input{
+    background: rgba(6,11,21,.8);
+    border: 1px solid hsla(0,0%,100%,.2);
+    padding: 12px;
+    height: 2rem;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+.types_container{
+    padding: 1rem;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    background: rgba(6,11,21,.8);
+    border-radius: 1rem;
+}
+
+.types_container > div{
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.types_container > div label{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
