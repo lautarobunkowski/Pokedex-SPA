@@ -22,6 +22,7 @@ const Detail = () => {
 
   const detailPokemons = useSelector(state => state.detailPokemons)
   const [pokemon, setPokemon] = useState({}); 
+
   useEffect(() => {
     const getPokemonById = async() => {
       try {
@@ -34,6 +35,9 @@ const Detail = () => {
     getPokemonById()
     dispatch(getDetailPokemons(idPokemon))
   },[idPokemon, setPokemon, dispatch])
+  
+  console.log(detailPokemons)
+  console.log(pokemon)
   return (
     !pokemon.image? 
     <div className={styles.loader}>
@@ -82,10 +86,10 @@ const Detail = () => {
           }
         </div>
         <div className={styles.slice_buttons}>
-          <Link to={`/${Number(idPokemon)-1}`}>
+          <Link to={`/detail/${Number(idPokemon)-1}`}>
             <BiUpArrow/>
           </Link>
-          <Link to={`/${Number(idPokemon)+1}`}>
+          <Link to={`/detail/${Number(idPokemon)+1}`}>
             <BiDownArrow/>
           </Link>
         </div>

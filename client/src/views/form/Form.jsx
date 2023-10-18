@@ -91,7 +91,7 @@ const Form = () => {
                 pokemonTypes?pokemonTypes.map(type => {
                     return(
                         <div className={styles[`${type.type}Type_container`]}>
-                            <img src={`./utils/types_icons/${type.type}.png`} alt={type.type}/>
+                            <img src={`./utils/types_icons/${type.type}.svg`} alt={type.type}/>
                             <label htmlFor={type.type}>
                                 <p>{type.type}</p>
                             </label>

@@ -19,6 +19,10 @@
     align-items: center;
 }
 
+.menu_icon{
+    display: none;
+}
+
 ul{
     display: flex;
     gap: 50px;
@@ -56,11 +60,37 @@ ul{
 }
 
 @media(max-width: 800px) {
-    .logo_navbar{
-        height: 100px;
-    } 
+    .menu_icon{
+        position: absolute;
+        display:initial;
+        top: 30px;
+        right: 10%;
+        font-size: 2.5rem;
+        color: #1e1e1e;
+    }
 
     .Navbar_information{
-        display: none;
+        transform: translateX(100vw);
+        position: absolute;
+        background-color: #207DF4;
+        width: 50%;
+        height: 100%;
+        flex-direction: column;
+        z-index: 20;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .Navbar_information ul{
+        flex-direction: column;
+    }
+
+    .Navbar_information_active{
+        transition: all 0.3s ease-in-out;
+        transform: translateX(25vw);
+    }
+
+    .menu_icon_active{
+        z-index: 21;
+        color: white;
     }
 }
