@@ -87,3 +87,10 @@ export const createPokemon = (pokemon) => {
         }
     }
 }
+
+export const filterPokemons = (infoFilter) => {
+    return {
+        type: actions.FILTER_POKEMONS,
+        payload: infoFilter
+    }
+}

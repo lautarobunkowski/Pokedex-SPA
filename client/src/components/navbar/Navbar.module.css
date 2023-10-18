@@ -60,6 +60,10 @@ ul{
 }
 
 @media(max-width: 800px) {
+    .Navbar{
+        flex-direction: row;
+    }
+
     .menu_icon{
         position: absolute;
         display:initial;
@@ -67,26 +71,34 @@ ul{
         right: 10%;
         font-size: 2.5rem;
         color: #1e1e1e;
+        cursor: pointer;
     }
 
     .Navbar_information{
-        transform: translateX(100vw);
+        visibility: hidden;
+        opacity: 0;
         position: absolute;
+        right: 0;
+        top: 0;
         background-color: #207DF4;
         width: 50%;
         height: 100%;
         flex-direction: column;
         z-index: 20;
         transition: all 0.3s ease-in-out;
+        gap: 1.25rem;
+        justify-content:center;
     }
 
     .Navbar_information ul{
+        gap: 1.25rem;
         flex-direction: column;
     }
 
     .Navbar_information_active{
+        visibility: visible;
+        opacity: 1;
         transition: all 0.3s ease-in-out;
-        transform: translateX(25vw);
     }
 
     .menu_icon_active{
