@@ -94,3 +94,10 @@ export const filterPokemonsbyOrigins = (info) => {
         payload: info
     }
 }
+
+export const OrderPokemons = (info) => {
+    return {
+        type: actions.ORDER_POKEMONS,
+        payload: info,
+    }
+}

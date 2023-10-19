@@ -7,7 +7,11 @@ const initialState = {
     searchPokemon:[],
     numberPage: 1,
     detailPokemons:[],
-    pokemonTypes: []
+    pokemonTypes: [],
+    filterOrigin:{
+        created: false,
+        noCreated: false,
+    }
 }
 
 const rootReducer = (state=initialState, {type, payload}) => {
@@ -34,12 +38,13 @@ const rootReducer = (state=initialState, {type, payload}) => {
         case actions.CREATE_POKEMON:
             return {...state, allPokemonsCache: [...state.allPokemonsCache, payload], allPokemons: [...state.allPokemons, payload]}
         case actions.FILTER_POKEMONS_BY_ORIGIN:
+            console.log(payload)
             if(payload.created === true && payload.noCreated === false){
-                return {...state, allPokemons: state.allPokemonsCache.filter(pokemon => pokemon.created === true), numberPage: 1}
+                return {...state, allPokemons: state.allPokemonsCache.filter(pokemon => pokemon.created === true), numberPage: 1, filterOrigin : payload}
             } else if(payload.noCreated === true && payload.created === false) {
-                return {...state, allPokemons: state.allPokemonsCache.filter(pokemon => pokemon.created === false), numberPage: 1}
+                return {...state, allPokemons: state.allPokemonsCache.filter(pokemon => pokemon.created === false), numberPage: 1, filterOrigin : payload}
             }
-            return {...state, allPokemons: state.allPokemonsCache, numberPage: 1}
+            return {...state, allPokemons: state.allPokemonsCache, numberPage: 1, filterOrigin : payload}
         default:
             return {...state}
     }
