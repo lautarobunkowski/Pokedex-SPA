@@ -33,6 +33,7 @@ const postPokemon = async(req,res) => {
 
         pokemon.addType(idsArray) // de mi modelo relaciono el modelo de tipos pasando un array con los ID's de cada tipo 
         pokemon.dataValues.types = [...types]
+        pokemon.dataValues.created = true
 
         if(created) return res.status(200).send(pokemon)
         res.status(400).send(`Ya hay un Pokemon creado con el nombre ${name}`)

@@ -38,6 +38,7 @@ const pokeApi = async(url) => {
     .then(responses => {
         return responses.map(p => {
             return {
+                "created": false,
                 "id":p.data.id,
                 "name":p.data.name,
                 "image":p.data.sprites.other["official-artwork"].front_default,

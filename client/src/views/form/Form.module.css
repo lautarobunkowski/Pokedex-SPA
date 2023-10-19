@@ -13,16 +13,29 @@
 
 .form{
     background: rgba(0, 0, 0, 0.357);
-    max-width: 500px;
+    max-width: 700px;
     max-height: 100%;
     padding: 1rem;
     border-radius: 2rem;
     overflow-y: auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
     gap: 0.5rem;
+}
+
+.form h2{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.inputs_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
 }
 
 .name_container,
@@ -33,18 +46,25 @@
 .speed_container,
 .height_container,
 .weight_container{
-    gap: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    width: 325px;
+    height: 65px;
+}
+
+.inputs_container p{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
 }
 
 .form input{
     background: rgba(6,11,21,.8);
     border: 1px solid hsla(0,0%,100%,.2);
     padding: 12px;
-    height: 2rem;
+    height: 1.5rem;
     color: white;
     border-radius: 0.5rem;
 }
@@ -52,7 +72,6 @@
 .types_container{
     padding: 1rem;
     max-width: 100%;
-    overflow: hidden;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -63,7 +82,7 @@
 }
 
 .types_container > div{
-    width: 120px;
+    width: 150px;
     display: flex;
     align-items: center;
     justify-content: space-between;

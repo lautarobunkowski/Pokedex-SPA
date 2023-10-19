@@ -54,37 +54,47 @@ const Form = () => {
     return (<div className={styles.form_container}>
         <form onSubmit={handleSubmit} className={styles.form}>
             <h2>Create your Pokemon!</h2>
-            <div className={styles.name_container}>
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name" onChange={handleChange}/>
-            </div>
-            <div className={styles.image_container}>
-                <label htmlFor="image">image</label>
-                <input type="text" name="image" id="image" onChange={handleChange}/>
-            </div>
-            <div className={styles.health_container}>
-                <label htmlFor="health">health</label>
-                <input type="number" name="health" id="health" onChange={handleChange}/>
-            </div>
-            <div className={styles.attack_container}>
-                <label htmlFor="attack">attack</label>
-                <input type="number" name="attack" id="attack" onChange={handleChange}/>
-            </div>
-            <div className={styles.defense_container}>
-                <label htmlFor="defense">defense</label>
-                <input type="number" name="defense" id="defense" onChange={handleChange}/>
-            </div>
-            <div className={styles.speed_container}>
-                <label htmlFor="speed">speed</label>
-                <input type="number" name="speed" id="speed" onChange={handleChange}/>
-            </div>
-            <div className={styles.height_container}>
-                <label htmlFor="height">height</label>
-                <input type="number" name="height" id="height" onChange={handleChange}/>
-            </div>
-            <div className={styles.weight_container}>
-                <label htmlFor="weight">weight</label>
-                <input type="number" name="weight" id="weight" onChange={handleChange}/>
+            <div className={styles.inputs_container}>
+                <div className={styles.name_container}>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" onChange={handleChange}/>
+                    <p>{errors.name}</p>
+                </div>
+                <div className={styles.image_container}>
+                    <label htmlFor="image">image</label>
+                    <input type="text" name="image" id="image" onChange={handleChange}/>
+                    <p>{errors.image}</p>
+                </div>
+                <div className={styles.health_container}>
+                    <label htmlFor="health">health</label>
+                    <input type="number" name="health" id="health" onChange={handleChange}/>
+                    <p>{errors.health}</p>
+                </div>
+                <div className={styles.attack_container}>
+                    <label htmlFor="attack">attack</label>
+                    <input type="number" name="attack" id="attack" onChange={handleChange}/>
+                    <p>{errors.attack}</p>
+                </div>
+                <div className={styles.defense_container}>
+                    <label htmlFor="defense">defense</label>
+                    <input type="number" name="defense" id="defense" onChange={handleChange}/>
+                    <p>{errors.defense}</p>
+                </div>
+                <div className={styles.speed_container}>
+                    <label htmlFor="speed">speed</label>
+                    <input type="number" name="speed" id="speed" onChange={handleChange}/>
+                    <p>{errors.speed}</p>
+                </div>
+                <div className={styles.height_container}>
+                    <label htmlFor="height">height</label>
+                    <input type="number" name="height" id="height" onChange={handleChange}/>
+                    <p>{errors.height}</p>
+                </div>
+                <div className={styles.weight_container}>
+                    <label htmlFor="weight">weight</label>
+                    <input type="number" name="weight" id="weight" onChange={handleChange}/>
+                    <p>{errors.weight}</p>
+                </div>
             </div>
             <div className={styles.types_container}>
                 {

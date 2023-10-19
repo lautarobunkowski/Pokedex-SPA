@@ -17,12 +17,16 @@
 }
 
 .numberPage_container{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
     height: 3rem;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    padding-bottom: 1rem;
+    z-index: 20;
 }
 
 .numberPage_container p{

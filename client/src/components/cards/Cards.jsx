@@ -10,9 +10,7 @@ const Cards = () => {
   const dispatch = useDispatch()
   const showPokemons = useSelector(state => state.showPokemons)
   const numberPage = useSelector(state => state.numberPage)
-  const allPokemons = useSelector(state => state.allPokemons)
 
-  const lastPage = Math.round(allPokemons.length / 12);
   useEffect(() => {
     dispatch(getPagePokemons(numberPage))
   },[dispatch, numberPage])
@@ -37,10 +35,10 @@ const Cards = () => {
         <div className={styles.numberPage_container}>
           {numberPage !== 1 && <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage-1))}><FcPrevious/></button>}
           <button className={`${styles.button_page} ${styles.active}`}>{numberPage}</button>
-          <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+1))}>{numberPage+1}</button>
-          <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+2))}>{numberPage+2}</button>
-          <p className={styles.button_page}>...</p>
-          <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(lastPage))}>{lastPage}</button>
+          {/* <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+1))}>{numberPage+1}</button> */}
+          {/* <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+2))}>{numberPage+2}</button> */}
+          {/* <p className={styles.button_page}>...</p> */}
+          {/* <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(lastPage))}>{lastPage}</button> */}
           <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage+1))}><FcNext/></button>
         </div>
     </div>
