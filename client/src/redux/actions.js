@@ -88,9 +88,9 @@ export const createPokemon = (pokemon) => {
     }
 }
 
-export const filterPokemons = (infoFilter) => {
+export const filterPokemonsbyOrigins = (info) => {
     return {
-        type: actions.FILTER_POKEMONS,
-        payload: infoFilter
+        type: actions.FILTER_POKEMONS_BY_ORIGIN,
+        payload: info
     }
 }

@@ -214,6 +214,51 @@
     }
 }
 
+@media(max-width: 800px) {
+    .Detail{
+        justify-content: center;
+        overflow: hidden;
+        grid-template-columns: auto;
+        grid-template-rows: 35% 65%;
+    }
+
+    .container_info{
+        overflow: hidden;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        gap: 1rem;
+    }
+
+    .stats_container{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+    }
+
+    .stats_container > div{
+        height: 80px;
+    }
+
+    .container_img{
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    .container_img img{
+        width: 100%;
+    }
+
+    .medidor_container{
+        display: none;
+    }
+
+    .container_slice{
+        display: none;
+    }
+}
+
 @media(max-height: 940px) {
     .detail_cards{
         height: 850px;
