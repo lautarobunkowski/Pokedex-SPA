@@ -3,6 +3,7 @@
     border-radius: 2rem;
     overflow-y: auto;
     height: 90%;
+    width: 100%;
 }
 
 .container_cards{
@@ -61,4 +62,10 @@
 .Cards::-webkit-scrollbar-thumb {
     background-color:rgba(0, 0, 0, 0.65);    /* color of the scroll thumb */
     border-radius: 5px;
+}
+
+@media(max-width: 800px) {
+    .Cards{
+        height: 85%;
+    }
 }
