@@ -17,6 +17,11 @@ const initialState = {
         ascendent: true,
         descendent: false,
     },
+    filterTypes:{
+        all:true,
+        type1:"",
+        type2:""
+    }
 }
 
 const rootReducer = (state=initialState, {type, payload}) => {
@@ -49,6 +54,28 @@ const rootReducer = (state=initialState, {type, payload}) => {
                 return {...state, allPokemons: state.allPokemonsCache.filter(pokemon => pokemon.created === false), numberPage: 1, filterOrigin : payload}
             }
             return {...state, allPokemons: state.allPokemonsCache, numberPage: 1, filterOrigin : payload}
+        // case actions.FILTER_POKEMON_BY_TYPE:
+        //     let pokemonTypes1 = '';
+        //     let pokemonTypes2 = '';
+
+        //     if(payload.all === true){ //si hay el 1 tipo
+        //         return {...state, numberPage: 1};
+        //     }
+        //     if(payload.type1){ //si hay el 1 tipo
+        //         pokemonTypes1 = state.allPokemonsCache.filter(pokemon => { // todos los que matcheen con el primer 
+        //             if(pokemon.types.includes(payload.type1)){                   // tipo seleccionado en el input
+        //                 return pokemon;
+        //             }
+        //         })
+        //     }
+        //     if(payload.type2){ //si hay el 2 tipo
+        //         pokemonTypes2 = state.allPokemonsCache.filter(pokemon => { // todos los que tienen el segundo tipo
+        //             if(pokemon.types.includes(payload.type2)){                   // tipo seleccionado en el input
+        //                 return pokemon;
+        //             }
+        //         })
+        //     }
+        //     return {...state, numberPage: 1, allPokemons: [...pokemonTypes1, ...pokemonTypes2]};
         case actions.ORDER_POKEMONS:
             if(payload.ascendent === true){
                 return{...state, allPokemons: state.allPokemons.reverse(),numberPage: 1, filterOrder:payload};

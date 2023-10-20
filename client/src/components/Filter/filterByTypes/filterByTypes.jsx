@@ -1,6 +1,7 @@
+import styles from "./FilterByTypes.module.css";
+import { useSelector } from "react-redux";
 
-
-const filterByTypes = () => {
+const FilterByTypes = () => {
     const pokemonTypes = useSelector(state => state.pokemonTypes)
 
   return (
@@ -18,4 +19,4 @@ const filterByTypes = () => {
   )
 }
 
-export default filterByTypes
+export default FilterByTypes

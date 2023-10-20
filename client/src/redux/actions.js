@@ -101,3 +101,10 @@ export const OrderPokemons = (info) => {
         payload: info,
     }
 }
+
+export const FilterPokemonsbyTypes = (info) => {
+    return {
+        type: actions.FILTER_POKEMON_BY_TYPE,
+        payload: info,
+    }
+}

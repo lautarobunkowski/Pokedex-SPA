@@ -1,9 +1,10 @@
 .Cards{
-    background-color: #00000031;
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 2rem;
     overflow-y: auto;
-    height: 90%;
+    /* height: 90%; */
     width: 100%;
+    flex: 1;
 }
 
 .container_cards{

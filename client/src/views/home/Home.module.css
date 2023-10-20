@@ -17,10 +17,11 @@
     overflow: hidden;
     height: 100%;
     width: 100%;
+    gap: 1rem;
 }
 
 .filters_container{
-    height: 10%;
+    /* height: 10%; */
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -28,13 +29,19 @@
     align-items: center;
 }
 
+@media(max-width: 1030px) {
+    .filters_container{
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
 @media(max-width: 800px) {
     .filters_container{
-        height: 15%;
         width: 100%;
         display: flex;
-        justify-content: space-between;
-        gap: 2rem;
+        justify-content: center;
+        gap: 0.5rem;
         align-items: center;
     }
 }

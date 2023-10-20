@@ -1,0 +1,41 @@
+.types_container{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    overflow-x: auto;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.types_container::-webkit-scrollbar{
+    height: 8px;
+}
+
+.types_container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);        /* color of the tracking area */
+}
+
+.types_container::-webkit-scrollbar-thumb {
+    background-color:rgba(0, 0, 0, 0.5);    /* color of the scroll thumb */
+    border-radius: 5px;
+}
+
+.types_container > div img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+@media(max-width: 1030px) {
+    .types_container{
+        width: 100%;
+        flex: none;
+        height: auto;
+    }
+
+    .types_container > div img{
+        padding: 5px;
+    }
+}

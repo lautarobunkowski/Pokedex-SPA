@@ -37,23 +37,23 @@ const FilterByOrigin = () => {
     }
 
     return (
-    <div>
-        <form>
-            <h4>Filter By Type:</h4>
-            <div className={styles.inputAll_container}>
-                <label htmlFor="all">All</label>
-                <input type="checkbox" name="all" checked={filterOrigin.all} id="all" onChange={handleChange}/>
-            </div>
-            <div className={styles.inputCreated_container}>
-                <label htmlFor="created">Created</label>
-                <input type="checkbox" name="created" checked={filterOrigin.created} id="created" onChange={handleChange}/>
-            </div>
-            <div className={styles.inputApi_container}>
-                <label htmlFor="noCreated">no Created</label>
-                <input type="checkbox" name="noCreated" checked={filterOrigin.noCreated} id="noCreated" onChange={handleChange}/>
+        <form className={styles.form}>
+            <h4>Origin</h4>
+            <div className={styles.checkboxs_container}>
+                <div className={styles.inputAll_container}>
+                    <label htmlFor="all">all</label>
+                    <input type="checkbox" name="all" checked={filterOrigin.all} id="all" onChange={handleChange}/>
+                </div>
+                <div className={styles.inputCreated_container}>
+                    <label htmlFor="created">created</label>
+                    <input type="checkbox" name="created" checked={filterOrigin.created} id="created" onChange={handleChange}/>
+                </div>
+                <div className={styles.inputApi_container}>
+                    <label htmlFor="noCreated">no created</label>
+                    <input type="checkbox" name="noCreated" checked={filterOrigin.noCreated} id="noCreated" onChange={handleChange}/>
+                </div>
             </div>
         </form>
-    </div>
   )
 }
 

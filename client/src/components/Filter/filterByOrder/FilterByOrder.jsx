@@ -31,19 +31,19 @@ const FilterByOrder = () => {
     }
 
     return (
-    <div>
-        <form>
-            <h4>Filter By Order:</h4>
-            <div className={styles.ascendent_container}>
-                <label htmlFor="ascendent">Ascendent</label>
-                <input type="checkbox" name="ascendent" checked={filterOrder.ascendent} id="ascendent" onChange={handleChange}/>
-            </div>
-            <div className={styles.descendent_container}>
-                <label htmlFor="descendent">Descendent</label>
-                <input type="checkbox" name="descendent" checked={filterOrder.descendent} id="descendent" onChange={handleChange}/>
+        <form className={styles.form}>
+            <h4>Order</h4>
+            <div className={styles.checkboxs_container}>
+                <div className={styles.ascendent_container}>
+                    <label htmlFor="ascendent">ascendent</label>
+                    <input type="checkbox" name="ascendent" checked={filterOrder.ascendent} id="ascendent" onChange={handleChange}/>
+                </div>
+                <div className={styles.descendent_container}>
+                    <label htmlFor="descendent">descendent</label>
+                    <input type="checkbox" name="descendent" checked={filterOrder.descendent} id="descendent" onChange={handleChange}/>
+                </div>
             </div>
         </form>
-    </div>
   )
 }
 
