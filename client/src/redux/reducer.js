@@ -1,4 +1,5 @@
 import * as actions from "./action-types";
+import { filtersAndOrder } from "../components/Filter/filterAndOrder.js";
 
 const initialState = {
     allPokemonsCache:[],
@@ -18,7 +19,6 @@ const initialState = {
         descendent: false,
     },
     filterTypes:{
-        all:true,
         type1:"",
         type2:""
     }
@@ -48,41 +48,12 @@ const rootReducer = (state=initialState, {type, payload}) => {
         case actions.CREATE_POKEMON:
             return {...state, allPokemonsCache: [...state.allPokemonsCache, payload], allPokemons: [...state.allPokemons, payload]}
         case actions.FILTER_POKEMONS_BY_ORIGIN:
-            if(payload.created === true){
-                return {...state, allPokemons: state.allPokemonsCache.filter(pokemon => pokemon.created === true), numberPage: 1, filterOrigin : payload}
-            } else if(payload.noCreated === true) {
-                return {...state, allPokemons: state.allPokemonsCache.filter(pokemon => pokemon.created === false), numberPage: 1, filterOrigin : payload}
-            }
-            return {...state, allPokemons: state.allPokemonsCache, numberPage: 1, filterOrigin : payload}
-        // case actions.FILTER_POKEMON_BY_TYPE:
-        //     let pokemonTypes1 = '';
-        //     let pokemonTypes2 = '';
-
-        //     if(payload.all === true){ //si hay el 1 tipo
-        //         return {...state, numberPage: 1};
-        //     }
-        //     if(payload.type1){ //si hay el 1 tipo
-        //         pokemonTypes1 = state.allPokemonsCache.filter(pokemon => { // todos los que matcheen con el primer 
-        //             if(pokemon.types.includes(payload.type1)){                   // tipo seleccionado en el input
-        //                 return pokemon;
-        //             }
-        //         })
-        //     }
-        //     if(payload.type2){ //si hay el 2 tipo
-        //         pokemonTypes2 = state.allPokemonsCache.filter(pokemon => { // todos los que tienen el segundo tipo
-        //             if(pokemon.types.includes(payload.type2)){                   // tipo seleccionado en el input
-        //                 return pokemon;
-        //             }
-        //         })
-        //     }
-        //     return {...state, numberPage: 1, allPokemons: [...pokemonTypes1, ...pokemonTypes2]};
+            console.log(payload)
+            return{...state, allPokemons: filtersAndOrder(state.allPokemonsCache,state.filterTypes,state.filterOrder,payload),numberPage: 1, filterOrigin:payload}
+        case actions.FILTER_POKEMON_BY_TYPE:
+            return{...state, allPokemons: filtersAndOrder(state.allPokemonsCache,payload,state.filterOrder,state.filterOrigin),numberPage: 1, filterTypes:payload}
         case actions.ORDER_POKEMONS:
-            if(payload.ascendent === true){
-                return{...state, allPokemons: state.allPokemons.reverse(),numberPage: 1, filterOrder:payload};
-            }
-            if(payload.descendent === true){
-                return{...state, allPokemons: state.allPokemons.reverse(), numberPage: 1, filterOrder:payload};
-            }
+            return{...state, allPokemons: filtersAndOrder(state.allPokemonsCache,state.filterTypes,payload,state.filterOrigin),numberPage: 1, filterOrder:payload}
         default:
             return {...state}
     }

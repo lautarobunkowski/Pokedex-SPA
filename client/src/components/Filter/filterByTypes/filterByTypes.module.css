@@ -22,7 +22,7 @@
     border-radius: 5px;
 }
 
-.types_container > div img{
+.types_container > div input{
     height: 40px;
     width: 40px;
     cursor: pointer;
@@ -35,7 +35,7 @@
         height: auto;
     }
 
-    .types_container > div img{
+    .types_container > div input{
         padding: 5px;
     }
 }

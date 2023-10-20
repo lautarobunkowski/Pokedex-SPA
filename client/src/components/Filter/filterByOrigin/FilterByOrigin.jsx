@@ -18,19 +18,19 @@ const FilterByOrigin = () => {
             infoCreated.created = true;
         }
         if(inputCheckbox.name === "created" && inputCheckbox.checked === false){
-            infoCreated.created = false;
+            infoCreated.created = true;
         }
         if(inputCheckbox.name === "noCreated" && inputCheckbox.checked === true){
             infoCreated.noCreated = true;
         }
         if(inputCheckbox.name === "noCreated" && inputCheckbox.checked === false){
-            infoCreated.noCreated = false;
+            infoCreated.noCreated = true;
         }
         if(inputCheckbox.name === "all" && inputCheckbox.checked === true){
             infoCreated.all = true;
         }
         if(inputCheckbox.name === "all" && inputCheckbox.checked === false){
-            infoCreated.all = false;
+            infoCreated.all = true;
         }
 
         dispatch(filterPokemonsbyOrigins(infoCreated));

@@ -7,24 +7,23 @@ const FilterByOrder = () => {
     const filterOrder = useSelector(state => state.filterOrder)
 
     const handleChange = (event) => {
-        let infoOrder = {};
+        let infoOrder = {
+            ascendent:false,
+            descendent:false,
+        };
         const inputCheckbox = event.target
 
         if(inputCheckbox.name === "ascendent" && inputCheckbox.checked === true){
             infoOrder.ascendent = true;
-            infoOrder.descendent = false;
         }
         if(inputCheckbox.name === "ascendent" && inputCheckbox.checked === false){
-            infoOrder.ascendent = false;
-            infoOrder.descendent = true;
+            infoOrder.ascendent = true;
         }
         if(inputCheckbox.name === "descendent" && inputCheckbox.checked === true){
-            infoOrder.ascendent = false;
             infoOrder.descendent = true;
         }
         if(inputCheckbox.name === "descendent" && inputCheckbox.checked === false){
-            infoOrder.ascendent = true;
-            infoOrder.descendent = false;
+            infoOrder.descendent = true;
         }
 
         dispatch(OrderPokemons(infoOrder));
