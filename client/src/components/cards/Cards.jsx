@@ -11,11 +11,10 @@ const Cards = () => {
   const allPokemons = useSelector(state => state.allPokemons)
   const showPokemons = useSelector(state => state.showPokemons)
   const numberPage = useSelector(state => state.numberPage)
-  const filterOrder = useSelector(state => state.filterOrder)
 
   useEffect(() => {
     dispatch(getPagePokemons(numberPage))
-  },[dispatch, allPokemons, filterOrder])
+  },[dispatch, allPokemons])
 
   return (
     <div className={styles.Cards}>

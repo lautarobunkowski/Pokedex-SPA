@@ -7,26 +7,30 @@ const FilterByTypes = () => {
     const pokemonTypes = useSelector(state => state.pokemonTypes)
     const filterTypes = useSelector(state => state.filterTypes)
 
-    const handleChange = (event) => {
+    const handleClick = (event) => {
         const input = event.target.name
-        if(filterTypes.type1 === input){
-            filterTypes.type1 = "";
+        const updatedFilterTypes = { ...filterTypes };
+
+        if(updatedFilterTypes.type1 === input){
+            updatedFilterTypes.type1 = "";
+            return dispatch(FilterPokemonsbyTypes(updatedFilterTypes))
         }
-        if(filterTypes.type2 === input){
-            filterTypes.type2 = "";
+        if(updatedFilterTypes.type2 === input){
+            updatedFilterTypes.type2 = "";
+            return dispatch(FilterPokemonsbyTypes(updatedFilterTypes))
         }
 
-        if(filterTypes.type1.length > 0 && filterTypes.type2.length > 0){
+        if(updatedFilterTypes.type1.length > 0 && updatedFilterTypes.type2.length > 0){
             return
         }
 
-
-        if(filterTypes.type1.length === 0){
-            filterTypes.type1 = input
+        if(updatedFilterTypes.type1.length === 0){
+            updatedFilterTypes.type1 = input
         } else {
-            filterTypes.type2 = input
+            updatedFilterTypes.type2 = input
         }
-        dispatch(FilterPokemonsbyTypes(filterTypes))
+
+        return dispatch(FilterPokemonsbyTypes(updatedFilterTypes))
     }
 
   return (
@@ -35,7 +39,7 @@ const FilterByTypes = () => {
         pokemonTypes?pokemonTypes.map(type => {
             return(
                 <div className={styles[`${type.type}Type_container`]}>
-                    <input onChange={handleChange} name={`${type.type}`} type="image" src={`./utils/types_icons/${type.type}.svg`} alt={type.type}/>
+                    <input className={filterTypes.type1 === type.type || filterTypes.type2 === type.type?styles.active:null} onClick={handleClick} name={`${type.type}`} type="image" src={`./utils/types_icons/${type.type}.svg`} alt={type.type}/>
                 </div>
             )
         }):null

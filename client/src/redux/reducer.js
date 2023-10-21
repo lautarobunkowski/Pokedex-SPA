@@ -48,7 +48,6 @@ const rootReducer = (state=initialState, {type, payload}) => {
         case actions.CREATE_POKEMON:
             return {...state, allPokemonsCache: [...state.allPokemonsCache, payload], allPokemons: [...state.allPokemons, payload]}
         case actions.FILTER_POKEMONS_BY_ORIGIN:
-            console.log(payload)
             return{...state, allPokemons: filtersAndOrder(state.allPokemonsCache,state.filterTypes,state.filterOrder,payload),numberPage: 1, filterOrigin:payload}
         case actions.FILTER_POKEMON_BY_TYPE:
             return{...state, allPokemons: filtersAndOrder(state.allPokemonsCache,payload,state.filterOrder,state.filterOrigin),numberPage: 1, filterTypes:payload}
