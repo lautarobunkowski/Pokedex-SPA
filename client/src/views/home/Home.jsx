@@ -3,7 +3,7 @@ import styles from "./Home.module.css";
 import Cards from "../../components/cards/Cards";
 import FilterByOrigin from "../../components/Filter/filterByOrigin/FilterByOrigin.jsx";
 import FilterByOrder from "../../components/Filter/filterByOrder/FilterByOrder.jsx";
-import FilterByTypes from "../../components/Filter/filterByTypes/FilterByTypes";
+import FilterByType from "../../components/Filter/filterByType/FilterByType.jsx";
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
         <div className={styles.filters_container}>
           <FilterByOrigin/>
           <FilterByOrder/>
-          <FilterByTypes/>
+          <FilterByType/>
         </div>
         <Cards/>
       </div>

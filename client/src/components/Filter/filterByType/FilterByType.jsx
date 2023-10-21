@@ -1,8 +1,8 @@
-import styles from "./FilterByTypes.module.css";
+import styles from "./FilterByType.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { FilterPokemonsbyTypes } from "../../../redux/actions";
 
-const FilterByTypes = () => {
+const FilterByType = () => {
     const dispatch = useDispatch();
     const pokemonTypes = useSelector(state => state.pokemonTypes)
     const filterTypes = useSelector(state => state.filterTypes)
@@ -48,4 +48,4 @@ const FilterByTypes = () => {
   )
 }
 
-export default FilterByTypes
+export default FilterByType
