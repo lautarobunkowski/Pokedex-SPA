@@ -10,57 +10,12 @@ if(pokemon.name){
         errors.name = "debe de contener solo letras"
     }
 }
-
-if(pokemon.name === '' ){
-    errors.name = "nombre obligatorio"
-}
-
 // ----------------------------------------
 //   URL ----------------------------------
 if(pokemon.image){
     const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/
     if(!regex.test(pokemon.image)){
         errors.image = "debe contener un URL valida"
-    }
-}
-if(pokemon.image === ''){
-    errors.image = "url obligatorio"
-}
-// ----------------------------------------------
-// HEALTH ---------------------------------------
-if(pokemon.health){
-    if(pokemon.health < 1 || pokemon.health > 200){
-        errors.health = "debe tener un rango de entre 1 a 200"
-    }
-}
-if(pokemon.health === ''){
-    errors.image = "health obligatorio"
-}
-// ----------------------------------------------
-// ATTACK ---------------------------------------
-if(pokemon.attack){
-    if(pokemon.attack < 1 || pokemon.attack > 200){
-        errors.attack = "debe tener un rango de entre 1 a 200"
-    }
-}
-if(pokemon.attack === ''){
-    errors.attack = "attack obligatorio"
-}
-// ----------------------------------------------
-// DEFENSE ---------------------------------------
-if(pokemon.defense){
-    if(pokemon.defense < 1 || pokemon.defense > 200){
-        errors.defense = "debe tener un rango de entre 1 a 200"
-    }
-}
-if(pokemon.defense === ''){
-    errors.defense = "defense obligatorio"
-}
-// ----------------------------------------------
-// SPEED ---------------------------------------
-if(pokemon.speed){
-    if(pokemon.speed < 1 || pokemon.speed > 200){
-        errors.speed = "debe tener un rango de entre 1 a 200"
     }
 }
 // ----------------------------------------------

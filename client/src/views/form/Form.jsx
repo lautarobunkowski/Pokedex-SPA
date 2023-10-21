@@ -10,7 +10,15 @@ const Form = () => {
     const dispatch = useDispatch();
     const pokemonTypes = useSelector(state => state.pokemonTypes)
     const [pokemon, setPokemon] = useState({
-    types: []
+        name: "",
+        image: "",
+        health: 1,
+        attack:5,
+        defense:5,
+        speed:5,
+        height:0,
+        weight:0,
+        types: []
     })
 
     const [errors, setErrors] = useState({})
@@ -42,13 +50,14 @@ const Form = () => {
     }
 
     const handleSubmit = (e) => {
-        if(validationSubmit(pokemon)){
-            e.preventDefault();
-            dispatch(createPokemon(pokemon))
-        } else {
-            window.alert("No se han requerido los datos obligatorios")
-            e.preventDefault();
-        }
+        validationSubmit(errors)
+        // if(validationSubmit(errors)){
+        //     e.preventDefault();
+        //     dispatch(createPokemon(pokemon))
+        // } else {
+        //     window.alert("No se han requerido los datos obligatorios")
+        //     e.preventDefault();
+        // }
     }
 
     return (<div className={styles.form_container}>
@@ -67,23 +76,23 @@ const Form = () => {
                 </div>
                 <div className={styles.health_container}>
                     <label htmlFor="health">health</label>
-                    <input type="number" name="health" id="health" onChange={handleChange}/>
-                    <p>{errors.health}</p>
+                    <input type="range" min="1" max="250" name="health" id="health" onChange={handleChange}/>
+                    <p>{pokemon.health}</p>
                 </div>
                 <div className={styles.attack_container}>
                     <label htmlFor="attack">attack</label>
-                    <input type="number" name="attack" id="attack" onChange={handleChange}/>
-                    <p>{errors.attack}</p>
+                    <input type="range" min="5" max="200" name="attack" id="attack" onChange={handleChange}/>
+                    <p>{pokemon.attack}</p>
                 </div>
                 <div className={styles.defense_container}>
                     <label htmlFor="defense">defense</label>
-                    <input type="number" name="defense" id="defense" onChange={handleChange}/>
-                    <p>{errors.defense}</p>
+                    <input type="range" min="5" max="200" name="defense" id="defense" onChange={handleChange}/>
+                    <p>{pokemon.defense}</p>
                 </div>
                 <div className={styles.speed_container}>
                     <label htmlFor="speed">speed</label>
-                    <input type="number" name="speed" id="speed" onChange={handleChange}/>
-                    <p>{errors.speed}</p>
+                    <input type="range" min="5" max="200" name="speed" id="speed" onChange={handleChange}/>
+                    <p>{pokemon.speed}</p>
                 </div>
                 <div className={styles.height_container}>
                     <label htmlFor="height">height</label>

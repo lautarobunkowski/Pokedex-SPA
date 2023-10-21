@@ -1,6 +1,7 @@
-const validationSubmit = (pokemon) => {
-    if(pokemon.name && pokemon.image && pokemon.health && pokemon.attack && pokemon.defense && pokemon.types.length >= 1){
-        return true
+const validationSubmit = (errors) => {
+    
+    if(errors.name || errors.image || errors.speed || errors.height || errors.weight || errors.types){
+        return false
     }
     return false
 }
