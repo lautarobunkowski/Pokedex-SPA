@@ -20,8 +20,8 @@
 
 .numberPage_container{
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0vh;
+    left: 0vw;
     height: 3rem;
     width: 100%;
     display: flex;
