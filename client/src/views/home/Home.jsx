@@ -1,5 +1,5 @@
 import styles from "./Home.module.css";
-// -----------components------------
+// -----------components-----------
 import Cards from "../../components/cards/Cards";
 import FilterByOrigin from "../../components/Filter/filterByOrigin/FilterByOrigin.jsx";
 import FilterByOrder from "../../components/Filter/filterByOrder/FilterByOrder.jsx";
