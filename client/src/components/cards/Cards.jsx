@@ -12,9 +12,20 @@ const Cards = () => {
   const showPokemons = useSelector(state => state.showPokemons)
   const numberPage = useSelector(state => state.numberPage)
 
+  const lastPage = (numberPage, allPokemons) => {
+    if(allPokemons.length === 0){
+      return false
+    }
+    if(numberPage !== Math.ceil(allPokemons.length / 12)){
+      return true
+    } else {
+      return false
+    }
+  }
+
   useEffect(() => {
     dispatch(getPagePokemons(numberPage))
-  },[dispatch, allPokemons])
+  },[dispatch, allPokemons, numberPage])
 
   return (
     <div className={styles.Cards}>
@@ -36,7 +47,7 @@ const Cards = () => {
         <div className={styles.numberPage_container}>
           {numberPage !== 1 && <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage-1))}><FcPrevious/></button>}
           <button className={`${styles.button_page} ${styles.active}`}>{numberPage}</button>
-          <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage + 1))}><FcNext/></button>
+          {lastPage(numberPage, allPokemons)? <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage + 1))}><FcNext/></button>:null}
         </div>
     </div>
   )
