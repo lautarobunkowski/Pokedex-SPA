@@ -114,3 +114,10 @@ export const FilterPokemonsbyTypes = (info) => {
         payload: info,
     }
 }
+
+export const cerrarNavbar = (value) => {
+    return {
+      type: actions.CERRAR_NAVBAR,
+      payload: value
+    };
+};

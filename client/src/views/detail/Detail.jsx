@@ -12,7 +12,7 @@ import { BiUpArrow, BiDownArrow } from 'react-icons/bi';
 import medidor_1 from "./medidor_1.png";
 // utils --------------------------------
 import getColorDetailByType from "./getColorDetailByType";
-import { getDetailPokemons } from "../../redux/actions";
+import { getDetailPokemons, cerrarNavbar } from "../../redux/actions";
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const Detail = () => {
     <div className={styles.loader}>
       <Loader/>
     </div>:
-    <div className={styles.Detail}>
+    <div className={styles.Detail} onClick={() => dispatch(cerrarNavbar(false))}>
       <div className={styles.background_detail} style={{
       background:`${getColorDetailByType(pokemon.types[0])}`
       }}>

@@ -21,7 +21,8 @@ const initialState = {
     filterTypes:{
         type1:"",
         type2:""
-    }
+    },
+    navbarVisible: false,
 }
 
 const rootReducer = (state=initialState, {type, payload}) => {
@@ -53,6 +54,8 @@ const rootReducer = (state=initialState, {type, payload}) => {
             return{...state, allPokemons: filtersAndOrder(state.allPokemonsCache,payload,state.filterOrder,state.filterOrigin),numberPage: 1, filterTypes:payload}
         case actions.ORDER_POKEMONS:
             return{...state, allPokemons: filtersAndOrder(state.allPokemonsCache,state.filterTypes,payload,state.filterOrigin),numberPage: 1, filterOrder:payload}
+        case actions.CERRAR_NAVBAR:
+            return {...state, navbarVisible: payload}
         default:
             return {...state}
     }

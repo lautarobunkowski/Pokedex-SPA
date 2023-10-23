@@ -1,9 +1,11 @@
+// ---------  HOOKS  ---------
 import { useState } from 'react';
-import styles from "./SearchBar.module.css";
-import Button from "../button/Button";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getPokemonByName} from "../../redux/actions";
+import { getPokemonByName, cerrarNavbar} from "../../redux/actions";
+// --------------------------------------------------
+import styles from "./SearchBar.module.css";
+import Button from "../button/Button";
 
 
 const SearchBar = () => {
@@ -31,7 +33,7 @@ const SearchBar = () => {
       name="" 
       placeholder='Search'
       />
-      <Link to="/search">
+      <Link to="/search" onClick={() => dispatch(cerrarNavbar(false))}>
         <Button onClick={handleClick} text="Search"/>
       </Link>
     </div>

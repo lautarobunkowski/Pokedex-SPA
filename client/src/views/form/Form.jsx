@@ -1,7 +1,9 @@
 import styles from "./Form.module.css";
+// ---------  HOOKS  ---------
 import { useSelector, useDispatch} from "react-redux";
 import { useState } from "react";
-import { createPokemon } from "../../redux/actions";
+import { createPokemon, cerrarNavbar } from "../../redux/actions";
+// ---------------------------------
 import validation from "./validation";
 import validationSubmit from "./validationSubmit";
 import Button from "../../components/button/Button";
@@ -22,13 +24,7 @@ const Form = () => {
         types: []
     })
 
-    const [errors, setErrors] = useState({
-        // name: undefined,
-        // image: undefined,
-        // height:undefined,
-        // weight:undefined,
-        // types: undefined
-    })
+    const [errors, setErrors] = useState({})
 
     const handleChange = (event) => {
         const property = event.target.name;
@@ -67,7 +63,7 @@ const Form = () => {
         }
     }
 
-    return (<div className={styles.form_container}>
+    return (<div className={styles.form_container} onClick={() => dispatch(cerrarNavbar(false))}>
         <form onSubmit={handleSubmit} className={styles.form}>
             <h2>Create your Pokemon!</h2>
             <div className={styles.inputs_container}>
