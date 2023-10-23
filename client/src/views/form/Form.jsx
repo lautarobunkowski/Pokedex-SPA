@@ -29,6 +29,24 @@ const Form = () => {
     const handleChange = (event) => {
         const property = event.target.name;
         let value = event.target.value;
+
+        if(property === "image"){
+            if(event.target.files[0] !== undefined){
+                const archivo = event.target.files[0]
+
+                const lector = new FileReader();
+
+                lector.onload = (e) => {
+                    const result = e.target.result;
+                    setPokemon({...pokemon, image:result});
+                };
+
+                return  lector.readAsDataURL(archivo);
+            } else {
+                return
+            }
+        }
+
         if(property === "health" || property === "attack" || property === "defense" || property === "speed" || property === "height" || property === "weight"){
             value = Number(value)
         }
@@ -67,15 +85,15 @@ const Form = () => {
         <form onSubmit={handleSubmit} className={styles.form}>
             <h2>Create your Pokemon!</h2>
             <div className={styles.inputs_container}>
+                <div className={styles.image_container}>
+                    <label htmlFor="image">image</label>
+                    {pokemon.image? <img src={pokemon.image} alt={pokemon.name} className={styles.pokemon_image}/>: <img src="./favicon.ico" alt="pokemon" className={styles.undefined_image}/>}
+                    <input type="file" name="image" id="image" accept=".jpg, .png, image/*" required onChange={handleChange}/>
+                </div>
                 <div className={styles.name_container}>
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" id="name" onChange={handleChange}/>
                     <p>{errors.name}</p>
-                </div>
-                <div className={styles.image_container}>
-                    <label htmlFor="image">image</label>
-                    <input type="text" name="image" id="image" onChange={handleChange}/>
-                    <p>{errors.image}</p>
                 </div>
                 <div className={styles.health_container}>
                     <label htmlFor="health">health</label>

@@ -54,6 +54,30 @@
     height: 65px;
 }
 
+.image_container{
+    width: 200px;
+    height: 250px;
+}
+
+.image_container input{
+    display: flex;
+    width: 200px;
+}
+
+.undefined_image{
+    object-fit: contain;
+    width: 200px;
+    height: 200px;
+}
+
+.pokemon_image{
+    object-fit: contain;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+}
+
 .inputs_container p{
     font-size: 14px;
     font-weight: 400;
@@ -63,7 +87,7 @@
 .form input{
     background: rgba(6,11,21,.8);
     border: 1px solid hsla(0,0%,100%,.2);
-    padding: 12px;
+    padding: 0.1rem;
     height: 1.5rem;
     color: white;
     border-radius: 0.5rem;
