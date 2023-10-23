@@ -11,7 +11,7 @@
     height: 1.8rem;
     border: none;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.582);
+    background-color: rgb(255, 255, 255);
 }
 
 .input_search::placeholder{

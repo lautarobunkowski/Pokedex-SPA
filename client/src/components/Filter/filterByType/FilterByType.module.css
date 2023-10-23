@@ -7,6 +7,7 @@
     overflow-x: auto;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
 }
 
 .types_container::-webkit-scrollbar{
@@ -18,7 +19,7 @@
 }
 
 .types_container::-webkit-scrollbar-thumb {
-    background-color:rgba(0, 0, 0, 0.5);    /* color of the scroll thumb */
+    background-color:rgba(255, 255, 255, 1);    /* color of the scroll thumb */
     border-radius: 5px;
 }
 

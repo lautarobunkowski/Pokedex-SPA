@@ -7,12 +7,27 @@
     padding: 0 5% 0 5%;
 }
 
+.logo_home, .logo_create, .logo_close{
+    height: 40px;
+    width: 40px;
+}
+
+.Navbar_information .NavLink{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .logo_navbar{
     height: 60px;
     width: auto;
 }
 
 .Navbar_information{
+    border-radius: 1rem;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     gap: 50px;
     justify-content: center;

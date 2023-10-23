@@ -36,8 +36,6 @@ const Detail = () => {
     dispatch(getDetailPokemons(idPokemon))
   },[idPokemon, setPokemon, dispatch])
   
-  console.log(detailPokemons)
-  console.log(pokemon)
   return (
     !pokemon.image? 
     <div className={styles.loader}>

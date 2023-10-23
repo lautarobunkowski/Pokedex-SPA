@@ -4,6 +4,10 @@ import { NavLink } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar.jsx";
 import { BiMenuAltRight } from 'react-icons/bi';
 import { useState } from "react";
+// icons -------------------------------------------
+import home from "./menu.png";
+import create from "./create.png";
+import close from "./close.png";
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false)
@@ -21,22 +25,20 @@ const Navbar = () => {
         <ul>
             <li>
                 <NavLink to="/home" className={styles.NavLink}>
-                    Home
+                    <img className={styles.logo_home} src={home} alt="home" />
+                    {/* Home */}
                 </NavLink>
             </li>
             <li>
                 <NavLink to="/form" className={styles.NavLink}>
-                    Form
-                </NavLink>
-            </li>
-            <li>
-                <NavLink to="/About" className={styles.NavLink}>
-                    About
+                    <img className={styles.logo_create} src={create} alt="create" />
+                    {/* Form */}
                 </NavLink>
             </li>
             <li>
                 <NavLink to="/" className={styles.NavLink}>
-                    Close
+                    {/* Close */}
+                    <img className={styles.logo_close} src={close} alt="close" />
                 </NavLink>
             </li>
         </ul>

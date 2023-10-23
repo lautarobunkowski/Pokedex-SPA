@@ -50,7 +50,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 325px;
+    width: 300px;
     height: 65px;
 }
 
@@ -79,6 +79,7 @@
     justify-content: center;
     background: rgba(6,11,21,.8);
     border-radius: 1rem;
+    position: relative;
 }
 
 .types_container > div{
@@ -97,4 +98,13 @@
 .types_container > div img{
     width: 25px;
     height: 25px;
+}
+
+.types_error{
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
 }

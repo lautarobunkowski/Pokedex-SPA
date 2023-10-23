@@ -5,6 +5,7 @@ import { createPokemon } from "../../redux/actions";
 import validation from "./validation";
 import validationSubmit from "./validationSubmit";
 import Button from "../../components/button/Button";
+import validationErrors from "./validationErrors";
 
 const Form = () => {
     const dispatch = useDispatch();
@@ -16,12 +17,18 @@ const Form = () => {
         attack:5,
         defense:5,
         speed:5,
-        height:0,
-        weight:0,
+        height:null,
+        weight:null,
         types: []
     })
 
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({
+        // name: undefined,
+        // image: undefined,
+        // height:undefined,
+        // weight:undefined,
+        // types: undefined
+    })
 
     const handleChange = (event) => {
         const property = event.target.name;
@@ -32,7 +39,7 @@ const Form = () => {
 
         setPokemon({...pokemon, [property]:value})
         setErrors(validation({...pokemon, [property]:value})) //validacion de campos
-        }
+    }
 
     const handleClick = (event) => {
         const typeInput = event.target.name;
@@ -50,14 +57,14 @@ const Form = () => {
     }
 
     const handleSubmit = (e) => {
-        validationSubmit(errors)
-        // if(validationSubmit(errors)){
-        //     e.preventDefault();
-        //     dispatch(createPokemon(pokemon))
-        // } else {
-        //     window.alert("No se han requerido los datos obligatorios")
-        //     e.preventDefault();
-        // }
+        e.preventDefault();
+        const newErrors = validationSubmit(pokemon)
+        setErrors(newErrors)
+        if(validationErrors(newErrors)){
+            dispatch(createPokemon(pokemon))
+        } else {
+            window.alert("No se han requerido los datos obligatorios")
+        }
     }
 
     return (<div className={styles.form_container}>
@@ -106,6 +113,7 @@ const Form = () => {
                 </div>
             </div>
             <div className={styles.types_container}>
+                <p className={styles.types_error}>{errors.types}</p>
                 {
                 pokemonTypes?pokemonTypes.map(type => {
                     return(
@@ -121,7 +129,6 @@ const Form = () => {
                 }
             </div>
             <Button type="submit" text="Create"/>
-            {/* <button type="submit">Create</button> */}
         </form>
     </div>
     )

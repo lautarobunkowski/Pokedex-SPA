@@ -9,7 +9,7 @@ import Home from "./views/home/Home";
 import Detail from "./views/detail/Detail";
 import Form from "./views/form/Form";
 import Navbar from "./components/navbar/Navbar";
-import About from "./views/about/About";
+import NotFound from "./views/notFound/NotFound";
 import Search from "./views/Search/Search";
 // ---------  REACT DOM  ---------
 import {Routes, Route, useLocation} from 'react-router-dom'
@@ -37,7 +37,7 @@ function App() {
         <Route path='/search' element={<Search/>}/>
         <Route path='/detail/:idPokemon' element={<Detail/>}/>
         <Route path='/form' element={<Form/>}/>
-        <Route path='/about' element={<About/>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>
   );

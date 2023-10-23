@@ -45,10 +45,16 @@ export const clearData = () => {
 }
 
 export const getDetailPokemons = (idPokemon) => {
+
     const endpoint = "/pokemons/"
     return async(dispatch) => {
         try {
-            const id = [Number(idPokemon)-1, idPokemon, Number(idPokemon)+1]
+            let id = [];
+            if(idPokemon === "1"){
+                id = [idPokemon, Number(idPokemon)+1]
+            } else {
+                id = [Number(idPokemon)-1, idPokemon, Number(idPokemon)+1]
+            }
             const responses = await axios.all(id.map(pokemon => axios(`${endpoint}${pokemon}`)))
             const pokemons = responses.map(response => response.data)
             return dispatch({
