@@ -3,11 +3,13 @@ import styles from "./Form.module.css";
 import { useSelector, useDispatch} from "react-redux";
 import { useState } from "react";
 import { createPokemon, cerrarNavbar } from "../../redux/actions";
+import axios from "axios";
 // ---------------------------------
 import validation from "./validation";
 import validationSubmit from "./validationSubmit";
 import Button from "../../components/button/Button";
 import validationErrors from "./validationErrors";
+import undefinedPokemon from "./undefinedPokemon.png";
 
 const Form = () => {
     const dispatch = useDispatch();
@@ -23,28 +25,15 @@ const Form = () => {
         weight:null,
         types: []
     })
-
     const [errors, setErrors] = useState({})
+    const [image, setImage] = useState(null)
 
     const handleChange = (event) => {
         const property = event.target.name;
         let value = event.target.value;
 
         if(property === "image"){
-            if(event.target.files[0] !== undefined){
-                const archivo = event.target.files[0]
-
-                const lector = new FileReader();
-
-                lector.onload = (e) => {
-                    const result = e.target.result;
-                    setPokemon({...pokemon, image:result});
-                };
-
-                return  lector.readAsDataURL(archivo);
-            } else {
-                return
-            }
+            return setImage(event.target.files[0])
         }
 
         if(property === "health" || property === "attack" || property === "defense" || property === "speed" || property === "height" || property === "weight"){
@@ -53,6 +42,19 @@ const Form = () => {
 
         setPokemon({...pokemon, [property]:value})
         setErrors(validation({...pokemon, [property]:value})) //validacion de campos
+    }
+
+    const submitImage = async() => {
+        const formData = new FormData();
+        formData.append("file", image);
+        formData.append("upload_preset","dynh9dt8");
+
+        try {
+            const response = await axios.post('https://api.cloudinary.com/v1_1/duy9efu8j/image/upload',formData)
+            return response.data.url
+        } catch (error) {
+            return false
+        }
     }
 
     const handleClick = (event) => {
@@ -69,13 +71,26 @@ const Form = () => {
             setPokemon({...pokemon, types:[...pokemon.types, typeInput]})
         }
     }
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
+        // - Evito recargar el formulario
         e.preventDefault();
-        const newErrors = validationSubmit(pokemon)
+        // ------------------------------
+        // subo la imagen ---------------
+        const urlImage = await submitImage()
+        if(urlImage === false){
+            return
+        }
+        // setPokemon({...pokemon, image: urlImage})
+        // - Valido el formulario antes de enviar, lo almaceno en una copia porque react no actualiza el estado hasta su siguiente renderizacion
+        // y lo necesito para validar que no contenga errores antes de enviar
+        const newErrors = validationSubmit({...pokemon, image: urlImage})
         setErrors(newErrors)
         if(validationErrors(newErrors)){
-            dispatch(createPokemon(pokemon))
+            if(dispatch(createPokemon({...pokemon, image: urlImage}))){
+                window.alert("pokemon creado")
+            } else {
+                window.alert("pokemon")
+            }
         } else {
             window.alert("No se han requerido los datos obligatorios")
         }
@@ -87,7 +102,7 @@ const Form = () => {
             <div className={styles.inputs_container}>
                 <div className={styles.image_container}>
                     <label htmlFor="image">image</label>
-                    {pokemon.image? <img src={pokemon.image} alt={pokemon.name} className={styles.pokemon_image}/>: <img src="./favicon.ico" alt="pokemon" className={styles.undefined_image}/>}
+                    {image? <img src={URL.createObjectURL(image)} alt={pokemon.name} className={styles.pokemon_image}/>: <img src={undefinedPokemon} alt="undefinedPokemon" className={styles.undefined_image}/>}
                     <input type="file" name="image" id="image" accept=".jpg, .png, image/*" required onChange={handleChange}/>
                 </div>
                 <div className={styles.name_container}>

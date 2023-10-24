@@ -52,19 +52,6 @@
     border: 2px solid white;
 }
 
-.Cards::-webkit-scrollbar{
-    width: 8px;
-}
-
-.Cards::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.5);        /* color of the tracking area */
-  }
-
-.Cards::-webkit-scrollbar-thumb {
-    background-color:rgba(255, 255, 255, 1);    /* color of the scroll thumb */
-    border-radius: 5px;
-}
-
 @media(max-width: 800px) {
     .Cards{
         height: 85%;

@@ -4,9 +4,6 @@ const validationSubmit = (pokemon) => {
     if(pokemon.name === ""){
         errors.name = "debe contener un nombre"
     }
-    if(pokemon.image === ""){
-        errors.image = "debe contener una imagen"
-    }
     if(pokemon.types.length === 0){
         errors.types = "debe contener al menos un tipo"
     }
@@ -31,7 +28,6 @@ const validationSubmit = (pokemon) => {
             errors.height = "debe ser mayor a 0kg y menor a 1000kg"
         }
     }
-    console.log(errors)
     return errors
 }
 

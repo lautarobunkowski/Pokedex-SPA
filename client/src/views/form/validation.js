@@ -10,14 +10,6 @@ if(pokemon.name){
         errors.name = "debe de contener solo letras"
     }
 }
-// ----------------------------------------
-//   URL ----------------------------------
-if(pokemon.image){
-    const regex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/
-    if(!regex.test(pokemon.image)){
-        errors.image = "debe contener un URL valida"
-    }
-}
 // ----------------------------------------------
 // HEIGHT ---------------------------------------
 if(pokemon.height){
