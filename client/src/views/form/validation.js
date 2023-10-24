@@ -3,25 +3,25 @@ const validation = (pokemon) => {
 //   typeName -----------------------
 if(pokemon.name){
     const regexName = /^[a-zA-Z]+$/
-    if(pokemon.name.length < 3 || pokemon.name.length > 15){
-        errors.name = "debe de tener entre 3 a 15 caracteres"
+    if(pokemon.name.length < 3 || pokemon.name.length > 12){
+        errors.name = "rango de 3 a 12 caracteres"
     }
     if(!regexName.test(pokemon.name)){
-        errors.name = "debe de contener solo letras"
+        errors.name = "debe contener solo letras"
     }
 }
 // ----------------------------------------------
 // HEIGHT ---------------------------------------
 if(pokemon.height){
     if(pokemon.height <= 0 || pokemon.height >= 1000){
-        errors.height = "debe ser mayor a 0kg y menor a 1000kg"
+        errors.height = "rango: 0kg - 1000kg"
     }
 }
 // ----------------------------------------------
 // WEIGHT ---------------------------------------
 if(pokemon.weight){
     if(pokemon.weight <= 0 || pokemon.weight >= 20){
-        errors.weight = "debe ser mayor a 0m y menor a 20m"
+        errors.weight = "rango: 0m - 20m"
     }
 }
 // ----------------------------------------------
