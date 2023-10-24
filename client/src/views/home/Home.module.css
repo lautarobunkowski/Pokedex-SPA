@@ -40,7 +40,7 @@
     .filters_container{
         width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         gap: 0.5rem;
         align-items: center;
     }

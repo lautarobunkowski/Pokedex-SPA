@@ -8,7 +8,7 @@ const validationSubmit = (pokemon) => {
         errors.types = "debe contener al menos un tipo"
     }
     // datos obligatorios que se envian modificados sin nada (deben validarse)
-    if(pokemon.name.length > 0 || pokemon.image.length > 0){
+    if(pokemon.name.length > 0){
         const regexName = /^[a-zA-Z]+$/
         if(pokemon.name.length < 3 || pokemon.name.length > 15){
             errors.name = "debe de tener entre 3 a 15 caracteres"
