@@ -7,16 +7,12 @@ const FilterByOrder = () => {
     const filterOrder = useSelector(state => state.filterOrder)
 
     const handleChange = (event) => {
-        // let infoOrder = {
-        //     ascendent:false,
-        //     descendent:false,
-        //     // lowesAttack:false,
-        //     // highestAttack:false,
-        // };
         let infoOrder = {...filterOrder}
         const inputCheckbox = event.target
 
         if(inputCheckbox.name === "ascendent"){
+            infoOrder.highestAttack = false;
+            infoOrder.lowesAttack = false;
             if(infoOrder.descendent === true){
                 infoOrder.descendent = false;
                 infoOrder.ascendent = !infoOrder.ascendent;
@@ -24,6 +20,8 @@ const FilterByOrder = () => {
                 infoOrder.ascendent = !infoOrder.ascendent;
             }
         } else if(inputCheckbox.name === "descendent"){
+            infoOrder.highestAttack = false;
+            infoOrder.lowesAttack = false;
             if(infoOrder.ascendent === true){
                 infoOrder.ascendent = false;
                 infoOrder.descendent = !infoOrder.descendent;
@@ -33,6 +31,8 @@ const FilterByOrder = () => {
         }
 
         if(inputCheckbox.name === "lowesAttack"){
+            infoOrder.ascendent = false;
+            infoOrder.descendent = false;
             if(infoOrder.highestAttack === true){
                 infoOrder.highestAttack = false;
                 infoOrder.lowesAttack = !infoOrder.lowesAttack;
@@ -40,6 +40,8 @@ const FilterByOrder = () => {
                 infoOrder.lowesAttack = !infoOrder.lowesAttack;
             }
         } else if(inputCheckbox.name === "highestAttack"){
+            infoOrder.ascendent = false;
+            infoOrder.descendent = false;
             if(infoOrder.lowesAttack === true){
                 infoOrder.lowesAttack = false;
                 infoOrder.highestAttack = !infoOrder.highestAttack;
