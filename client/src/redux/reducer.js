@@ -15,8 +15,10 @@ const initialState = {
         noCreated: false,
     },
     filterOrder:{
-        ascendent: true,
+        ascendent: false,
         descendent: false,
+        lowesAttack: false,
+        highestAttack: false,
     },
     filterTypes:{
         type1:"",

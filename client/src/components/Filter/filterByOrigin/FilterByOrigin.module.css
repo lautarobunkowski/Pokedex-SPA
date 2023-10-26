@@ -2,15 +2,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 250px;
+    width: 200px;
     background-color: rgba(0, 0, 0, 0.2);
     padding: 0.5rem;
     border-radius: 0.5rem;
-    height: 90px;
+    height: 100px;
 }
 
 .form h4{
-    width: 40%;
+    margin: 0 5px 0 5px;
     color: white;
 }
 
@@ -19,7 +19,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    flex: 1;
     background-color: rgb(255, 255, 255);
     padding: 0.5rem;
     border-radius: 0.5rem;

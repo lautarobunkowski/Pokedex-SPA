@@ -41,6 +41,7 @@ const pokeApi = async(url) => {
                 "created": false,
                 "id":p.data.id,
                 "name":p.data.name,
+                "attack":p.data.stats[1].base_stat,
                 "image":p.data.sprites.other["official-artwork"].front_default,
                 "types":p.data.types.map(type => {
                     return type.type.name
