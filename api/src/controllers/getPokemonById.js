@@ -24,25 +24,20 @@ const getPokemonById = async(req,res) => {
         const pokeTypes = data.types.map(type => {
             return type.type.name
         })
-        const pokeStats = data.stats.map(stat => {
-            return {
-                "name":stat.stat.name,
-                "base_state":stat.base_stat
-            }
-        })
         const pokemon = {
-            "abilities":data.abilities,
-            "base_experience":data.base_experience,
-            "forms":data.forms,
-            "height":data.height,
             "id":data.id,
-            // "moves":p.moves,
             "name":data.name,
-            "order":data.order,
             "image":data.sprites.other["official-artwork"].front_default,
-            "stats":pokeStats,
-            "types":pokeTypes,
+            "health":data.stats[0].base_stat,
+            "attack":data.stats[1].base_stat,
+            "defense":data.stats[2].base_stat,
+            "speed":data.stats[5].base_stat,
+            "sp-attack":data.stats[3].base_stat,
+            "sp-defense":data.stats[4].base_stat,
+            "height":data.height,
             "weight":data.weight,
+            "created":false,
+            "types":pokeTypes,
         }
         res.status(200).send(pokemon)
     } catch (error) {

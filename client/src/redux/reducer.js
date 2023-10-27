@@ -7,7 +7,6 @@ const initialState = {
     showPokemons:[],
     searchPokemon:[],
     numberPage: 1,
-    detailPokemons:[],
     pokemonTypes: [],
     filterOrigin:{ //filtro por origen, mantiene los datos del filtro
         all:true,
@@ -44,8 +43,6 @@ const rootReducer = (state=initialState, {type, payload}) => {
             return {...state, searchPokemon: [payload]}
         case actions.CLEAR_DATA:
             return {...state, searchPokemon: []}
-        case actions.GET_DETAIL_POKEMONS:
-            return {...state, detailPokemons: payload}
         case actions.GET_POKEMON_TYPES:
             return {...state, pokemonTypes: payload}
         case actions.CREATE_POKEMON:

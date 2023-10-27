@@ -1,7 +1,6 @@
 import * as actions from "./action-types";
 import axios from "axios";
 
-let contador = 0
 export const getAllPokemons = (offset, limit) => {
     
     const endpoint = `/pokemons?offset=${offset}&limit=${limit}`
@@ -43,30 +42,6 @@ export const getPokemonByName = (pkName) => {
 export const clearData = () => {
     return {
         type: actions.CLEAR_DATA
-    }
-}
-
-export const getDetailPokemons = (idPokemon) => {
-
-    const endpoint = "/pokemons/"
-    return async(dispatch) => {
-        try {
-            let id = [];
-            if(idPokemon === "1"){
-                id = [idPokemon, Number(idPokemon)+1]
-            } else {
-                id = [Number(idPokemon)-1, idPokemon, Number(idPokemon)+1]
-            }
-            const responses = await axios.all(id.map(pokemon => axios(`${endpoint}${pokemon}`)))
-            const pokemons = responses.map(response => response.data)
-            return dispatch({
-                    type: actions.GET_DETAIL_POKEMONS,
-                    payload: pokemons
-            }
-        )
-        } catch (error) {
-            window.alert(error.message)
-        }
     }
 }
 
