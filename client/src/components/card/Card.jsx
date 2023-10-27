@@ -9,7 +9,7 @@ const Card = (props) => {
     }/>
       <img className={styles.img} src={props.image} alt={props.name}/>
       <div className={styles.info_pokemon}>
-      <Link to={`/detail/${props.id}`} className={styles.Link}>
+      <Link to={`/detail/${props.id}`} className={props.name.length > 10?`${styles.Link} ${styles.modifiedTitle}`:styles.Link}>
         <p>{props.name}</p>
       </Link>
         

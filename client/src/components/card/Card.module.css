@@ -51,6 +51,7 @@
     transform: translateX(-50%);
     width: 200px;
     height: 200px;
+    border-radius: 1rem;
 }
 
 .Link{
@@ -65,6 +66,10 @@
     cursor: pointer;
     transition: .3s all ease-in-out;
     text-decoration: none;
+}
+
+.modifiedTitle{
+    font-size: 1rem;
 }
 
 .name:hover{
