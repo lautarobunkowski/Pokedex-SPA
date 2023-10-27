@@ -58,22 +58,22 @@ const FilterByOrder = () => {
             <div className={styles.inputs_container}>
                 <div className={styles.checkboxs_container}>
                     <div className={styles.first_container}>
-                        <label htmlFor="ascendent">A → Z</label>
+                        <label htmlFor="ascendent">a → z</label>
                         <input type="checkbox" name="ascendent" checked={filterOrder.ascendent} id="ascendent" onChange={handleChange}/>
                     </div>
                         <div className={styles.second_container}>
-                        <label htmlFor="descendent">Z → A</label>
+                        <label htmlFor="descendent">z → a</label>
                     <input type="checkbox" name="descendent" checked={filterOrder.descendent} id="descendent" onChange={handleChange}/>
                 </div>
                 </div>
                 <div className={styles.checkboxs_container}>
                     <div className={styles.first_container}>
-                        <label htmlFor="lowesAttack">Attack ▲</label>
-                        <input type="checkbox" name="lowesAttack" checked={filterOrder.lowesAttack} id="lowesAttack" onChange={handleChange}/>
+                        <label htmlFor="highestAttack">attack ▲</label>
+                        <input type="checkbox" name="highestAttack" checked={filterOrder.highestAttack} id="highestAttack" onChange={handleChange}/>
                     </div>
                     <div className={styles.second_container}>
-                        <label htmlFor="highestAttack">Attack ▼</label>
-                        <input type="checkbox" name="highestAttack" checked={filterOrder.highestAttack} id="highestAttack" onChange={handleChange}/>
+                        <label htmlFor="lowesAttack"> ▼</label>
+                        <input type="checkbox" name="lowesAttack" checked={filterOrder.lowesAttack} id="lowesAttack" onChange={handleChange}/>
                     </div>
                 </div>
             </div>

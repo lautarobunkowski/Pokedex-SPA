@@ -27,6 +27,7 @@
     justify-content: flex-start;
     gap: 2rem;
     align-items: center;
+    overflow: hidden;
 }
 
 @media(max-width: 1030px) {

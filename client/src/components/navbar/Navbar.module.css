@@ -20,7 +20,7 @@
 }
 
 .logo_navbar{
-    height: 60px;
+    height: 40px;
     width: auto;
 }
 
@@ -82,10 +82,10 @@ ul{
     .menu_icon{
         position: absolute;
         display:initial;
-        top: 30px;
+        top: 20px;
         right: 10%;
         font-size: 2.5rem;
-        color: #1e1e1e;
+        color: #000000a2;
         cursor: pointer;
     }
 

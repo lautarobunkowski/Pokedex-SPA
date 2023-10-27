@@ -1,8 +1,10 @@
 import * as actions from "./action-types";
 import axios from "axios";
 
-export const getAllPokemons = () => {
-    const endpoint = "/pokemons"
+let contador = 0
+export const getAllPokemons = (offset, limit) => {
+    
+    const endpoint = `/pokemons?offset=${offset}&limit=${limit}`
     return async(dispatch) =>{
         try {
             const{data} = await axios.get(endpoint)

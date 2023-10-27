@@ -9,28 +9,28 @@ const initialState = {
     numberPage: 1,
     detailPokemons:[],
     pokemonTypes: [],
-    filterOrigin:{
+    filterOrigin:{ //filtro por origen, mantiene los datos del filtro
         all:true,
         created: false,
         noCreated: false,
     },
-    filterOrder:{
+    filterOrder:{ //filtro por ordenamiento, mantiene los datos del ordenamiento
         ascendent: false,
         descendent: false,
         lowesAttack: false,
         highestAttack: false,
     },
-    filterTypes:{
+    filterTypes:{ //filtro por tipos, mantiene los datos de los tipos
         type1:"",
         type2:""
     },
-    navbarVisible: false,
+    navbarVisible: false, // activar/desactivar navbar (mobile)
 }
 
 const rootReducer = (state=initialState, {type, payload}) => {
     switch (type) {
         case actions.GET_ALL_POKEMONS:
-            return { ...state, allPokemonsCache:payload, allPokemons:payload};
+            return { ...state, allPokemonsCache:[...payload], allPokemons:[...payload]};
         case actions.GET_PAGE_POKEMONS:
             const pokemonPerPage = 12;
             const startIdx = (payload - 1) * pokemonPerPage;

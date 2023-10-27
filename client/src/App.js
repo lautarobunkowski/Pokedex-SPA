@@ -24,7 +24,7 @@ function App() {
   const location = useLocation().pathname;
 
   useEffect(() => {
-    dispatch(getAllPokemons());
+    dispatch(getAllPokemons(0,151));
     dispatch(getPokemonTypes())
   },[dispatch])
   return (

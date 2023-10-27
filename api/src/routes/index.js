@@ -8,7 +8,7 @@ const getTypesPokemon = require("../controllers/getTypesPokemon.js")
 // Ejemplo: const authRouter = require('./auth.js');
 const router = Router();
 
-router.get('/pokemons', getPokemons)
+router.get('/pokemons?', getPokemons)
 router.get('/pokemons/name', getPokemonByName)
 router.get('/pokemons/:idPokemon', getPokemonById)
 router.post('/pokemons', postPokemon)

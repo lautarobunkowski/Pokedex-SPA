@@ -1,5 +1,4 @@
 const axios = require("axios")
-const url = "https://pokeapi.co/api/v2/pokemon?limit=151";
 const {Pokemon, Type} = require("../db.js")
 
 // const pokeApi = async(url) => {
@@ -69,6 +68,9 @@ const pokeDB = async(model) => {
 }
 
 const getPokemons = async(req,res) => {
+    const {offset, limit} = req.query
+    const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
+    console.log(url)
     try {
         const pokemonsApi = await pokeApi(url) //recibe la url para mapear a todos los pokemons
         const pokemonsDB = await pokeDB(Pokemon) //recibe el modelo y me trae a todos los pokemons de la DB

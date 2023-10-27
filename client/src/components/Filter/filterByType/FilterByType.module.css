@@ -19,10 +19,16 @@
 }
 
 .types_container > div input{
+    border-radius: 50%;
     height: 50px;
     width: 50px;
     padding: 5px;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.types_container > div input:hover{
+    transform: scale(1.1,1.1)
 }
 
 .active{
@@ -38,6 +44,8 @@
     }
 
     .types_container > div input{
+        height: 40px;
+        width: 40px;
         padding: 5px;
     }
 }
