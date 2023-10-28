@@ -23,6 +23,9 @@ const initialState = {
         type1:"",
         type2:""
     },
+    filterGens:{
+        currentGen:1
+    },
     navbarVisible: false, // activar/desactivar navbar (mobile)
 }
 

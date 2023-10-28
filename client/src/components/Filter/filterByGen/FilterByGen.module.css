@@ -1,9 +1,10 @@
 .FilterByGen{
     width: 200px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.firstGen{
+.containerGens{
     display: flex;
     overflow: hidden;
     width: 100%;
@@ -12,14 +13,14 @@
     justify-content: space-between;
 }
 
-.firstGenGames{
+.gamesImages{
     /* flex: 1; */
     width: 90%;
     height: auto;
     object-fit: contain;
 }
 
-.firstGen > button{
+.containerGens > button{
     width: 7px;
     color: white;
     background-color: transparent;

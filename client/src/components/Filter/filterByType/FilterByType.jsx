@@ -39,7 +39,7 @@ const FilterByType = () => {
         pokemonTypes?pokemonTypes.map(type => {
             return(
                 <div className={styles[`${type.type}Type_container`]}>
-                    <input className={filterTypes.type1 === type.type || filterTypes.type2 === type.type?styles.active:null} onClick={handleClick} name={`${type.type}`} type="image" src={`./utils/types_icons/${type.type}.svg`} alt={type.type}/>
+                    <img className={filterTypes.type1 === type.type || filterTypes.type2 === type.type?styles.active:null} onClick={handleClick} name={`${type.type}`} src={`./utils/types_icons/${type.type}.svg`} alt={type.type}/>
                 </div>
             )
         }):null

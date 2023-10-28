@@ -18,7 +18,7 @@
     display: flex;
 }
 
-.types_container > div input{
+.types_container > div img{
     border-radius: 50%;
     height: 50px;
     width: 50px;
@@ -27,7 +27,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.types_container > div input:hover{
+.types_container > div img:hover{
     transform: scale(1.1,1.1)
 }
 
@@ -43,7 +43,7 @@
         height: auto;
     }
 
-    .types_container > div input{
+    .types_container > div img{
         height: 40px;
         width: 40px;
         padding: 5px;
