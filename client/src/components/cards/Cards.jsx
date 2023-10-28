@@ -1,10 +1,15 @@
+// hooks --------------------------------------------------
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./Cards.module.css";
-import Card from "../card/Card";
-import { FcNext, FcPrevious } from 'react-icons/fc';
 import { useEffect } from "react";
 import {getPagePokemons} from "../../redux/actions";
+// Components ---------------------------------------------
+import Card from "../card/Card";
+import FilterByGen from "../Filter/filterByGen/FilterByGen.jsx";
 import Loader from "../loader/Loader";
+// styles -------------------------------------------------
+import styles from "./Cards.module.css";
+// icons --------------------------------------------------
+import { FcNext, FcPrevious } from 'react-icons/fc';
 
 const Cards = () => {
   const dispatch = useDispatch()
@@ -43,12 +48,12 @@ const Cards = () => {
           <Loader/>
         }
       </div>
-      
-        <div className={styles.numberPage_container}>
-          {numberPage !== 1 && <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage-1))}><FcPrevious/></button>}
-          <button className={`${styles.button_page} ${styles.active}`}>{numberPage}</button>
-          {lastPage(numberPage, allPokemons)? <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage + 1))}><FcNext/></button>:null}
-        </div>
+      <FilterByGen/>
+      <div className={styles.numberPage_container}>
+        {numberPage !== 1 && <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage-1))}><FcPrevious/></button>}
+        <button className={`${styles.button_page} ${styles.active}`}>{numberPage}</button>
+        {lastPage(numberPage, allPokemons)? <button className={styles.button_page} onClick={() => dispatch(getPagePokemons(numberPage + 1))}><FcNext/></button>:null}
+      </div>
     </div>
   )
 }
