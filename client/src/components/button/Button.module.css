@@ -2,12 +2,12 @@
     font-size: 0.9rem;
     font-weight: 700;
     border: 2px solid transparent;
-    width: 100px;
+    width: 80px;
     align-self: center;
     color: white;
     border: 2px solid #3363AF;
     background-color: #3363AF;
-    height: 2rem;
+    height: 1.5rem;
     border-radius: 2rem;
     cursor: pointer;
     transition: all .3s ease-in-out;

@@ -6,9 +6,9 @@ import { BiMenuAltRight } from 'react-icons/bi';
 import { useSelector, useDispatch } from "react-redux";
 import { cerrarNavbar, clearAllStates, getAllPokemons, getPokemonTypes } from "../../redux/actions.js";
 // icons -------------------------------------------
-import home from "./menu.png";
-import create from "./create.png";
-import close from "./close.png";
+// import home from "./menu.png";
+// import create from "./create.png";
+// import close from "./close.png";
 
 const Navbar = () => {
     const dispatch = useDispatch()
@@ -33,20 +33,17 @@ const Navbar = () => {
         <ul>
             <li>
                 <NavLink to="/home" className={styles.NavLink} onClick={handleClickMenu}>
-                    <img className={styles.logo_home} src={home} alt="home" />
-                    {/* Home */}
+                    Home
                 </NavLink>
             </li>
             <li>
                 <NavLink to="/form" className={styles.NavLink} onClick={handleClickMenu}>
-                    <img className={styles.logo_create} src={create} alt="create" />
-                    {/* Form */}
+                    Create
                 </NavLink>
             </li>
             <li>
                 <NavLink to="/" className={styles.NavLink} onClick={handleClickMenu}>
-                    {/* Close */}
-                    <img className={styles.logo_close} src={close} alt="close" name="close"/>
+                    Close
                 </NavLink>
             </li>
         </ul>
