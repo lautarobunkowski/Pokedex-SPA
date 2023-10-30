@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar.jsx";
 import { BiMenuAltRight } from 'react-icons/bi';
 import { useSelector, useDispatch } from "react-redux";
-import { cerrarNavbar } from "../../redux/actions.js";
+import { cerrarNavbar, clearAllStates, getAllPokemons, getPokemonTypes } from "../../redux/actions.js";
 // icons -------------------------------------------
 import home from "./menu.png";
 import create from "./create.png";
@@ -14,7 +14,12 @@ const Navbar = () => {
     const dispatch = useDispatch()
     const navbarVisible = useSelector(state => state.navbarVisible)
 
-    const handleClickMenu = () => {
+    const handleClickMenu = (event) => {
+        if(event.target.name === "close"){
+            dispatch(clearAllStates());
+            dispatch(getAllPokemons());
+            dispatch(getPokemonTypes());
+        }
         dispatch(cerrarNavbar(!navbarVisible))
     }
 
@@ -41,7 +46,7 @@ const Navbar = () => {
             <li>
                 <NavLink to="/" className={styles.NavLink} onClick={handleClickMenu}>
                     {/* Close */}
-                    <img className={styles.logo_close} src={close} alt="close" />
+                    <img className={styles.logo_close} src={close} alt="close" name="close"/>
                 </NavLink>
             </li>
         </ul>

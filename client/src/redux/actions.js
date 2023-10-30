@@ -1,9 +1,8 @@
 import * as actions from "./action-types";
 import axios from "axios";
 
-export const getAllPokemons = (offset, limit) => {
-    
-    const endpoint = `/pokemons?offset=${offset}&limit=${limit}`
+export const getAllPokemons = () => {
+    const endpoint = `/pokemons/`
     return async(dispatch) =>{
         try {
             const{data} = await axios.get(endpoint)
@@ -94,7 +93,34 @@ export const FilterPokemonsbyTypes = (info) => {
 
 export const cerrarNavbar = (value) => {
     return {
-      type: actions.CERRAR_NAVBAR,
-      payload: value
+        type: actions.CERRAR_NAVBAR,
+        payload: value
     };
 };
+
+export const getPokemonGen = (gen) => {
+    const endpoint = `/pokemons/gen?gen=${gen}`
+    return async(dispatch) =>{
+        try {
+            const{data} = await axios.get(endpoint)
+            return dispatch({
+                type: actions.GET_POKEMON_GEN, 
+                payload: data,
+            })
+        } catch (error) {
+            window.alert(error.data.message)
+        }
+    }
+}
+
+export const clearDataPokemons = () => {
+    return {
+        type: actions.CLEAR_DATA_POKEMONS
+    }
+}
+
+export const clearAllStates = () => {
+    return {
+        type: actions.CLEAR_ALL_STATES
+    }
+}
