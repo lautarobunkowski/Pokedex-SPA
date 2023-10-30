@@ -24,9 +24,7 @@ const initialState = {
         type1:"",
         type2:""
     },
-    filterGens:{
-        currentGen:1
-    },
+    currentGen:"firstGen",
     navbarVisible: false, // activar/desactivar navbar (mobile)
 }
 
@@ -62,11 +60,11 @@ const rootReducer = (state=initialState, {type, payload}) => {
         case actions.GET_POKEMON_GEN:
             return { ...state, 
                 allPokemonsCache:[
-                    ...payload, 
+                    ...payload.data, 
                     ...state.createPokemons
                 ], 
                 allPokemons:[
-                    ...payload, 
+                    ...payload.data, 
                     ...state.createPokemons
                 ], 
                 numberPage: 1, 
@@ -84,7 +82,9 @@ const rootReducer = (state=initialState, {type, payload}) => {
                 filterTypes:{
                     type1:"",
                     type2:""
-                },};
+                },
+                currentGen:payload.gen,
+            };
         case actions.CLEAR_DATA_POKEMONS:
             return {...state, allPokemonsCache: [], allPokemons: []}
         case actions.CLEAR_ALL_STATES:

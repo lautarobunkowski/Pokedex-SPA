@@ -11,6 +11,15 @@
     height: 100px;
     padding: 10px;
     justify-content: space-between;
+    transition: .3s all ease-in-out;
+}
+
+.containerGens:hover{
+    background-color: white;
+}
+
+.containerGens_active{
+    background-color: white;
 }
 
 .gamesImages{
@@ -18,11 +27,16 @@
     width: 90%;
     height: auto;
     object-fit: contain;
+    transition: .3s all ease-in-out;
+}
+
+.gamesImages:hover{
+    transform: scale(1.08,1.08);
 }
 
 .containerGens > button{
     width: 7px;
-    color: white;
+    color: rgb(50, 0, 189);
     background-color: transparent;
     border: none;
 }

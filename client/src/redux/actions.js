@@ -105,7 +105,7 @@ export const getPokemonGen = (gen) => {
             const{data} = await axios.get(endpoint)
             return dispatch({
                 type: actions.GET_POKEMON_GEN, 
-                payload: data,
+                payload: {data, gen},
             })
         } catch (error) {
             window.alert(error.data.message)
