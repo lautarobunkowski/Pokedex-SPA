@@ -61,19 +61,6 @@ ul{
     color: black;
 }
 
-@media(max-width: 1030px) {
-    .Navbar{
-        flex-direction: column;
-        gap: 1rem;
-        height: auto;
-    }
-
-    .logo_navbar{
-        margin-top: 1rem;
-    }
-
-}
-
 @media(max-width: 800px) {
     .Navbar{
         flex-direction: row;

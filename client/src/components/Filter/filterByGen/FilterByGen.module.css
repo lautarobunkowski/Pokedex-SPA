@@ -48,6 +48,10 @@
     border-radius: 50%;
 }
 
+.gensButton{
+    display: none;
+}
+
 @media(max-width:800px){
 
     .FilterByGen{
@@ -84,7 +88,8 @@
     }
 
     .gensButton{
-        position: absolute;
+        display: initial;
+        position: fixed;
         bottom: 10px;
         left: 5%;
         width: 30px;

@@ -5,10 +5,6 @@ import SearchBar from "../searchBar/SearchBar.jsx";
 import { BiMenuAltRight } from 'react-icons/bi';
 import { useSelector, useDispatch } from "react-redux";
 import { cerrarNavbar, clearAllStates, getAllPokemons, getPokemonTypes } from "../../redux/actions.js";
-// icons -------------------------------------------
-// import home from "./menu.png";
-// import create from "./create.png";
-// import close from "./close.png";
 
 const Navbar = () => {
     const dispatch = useDispatch()
