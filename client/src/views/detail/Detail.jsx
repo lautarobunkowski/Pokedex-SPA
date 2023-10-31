@@ -53,24 +53,14 @@ const Detail = () => {
           defense={pokemon.defense}
           speed={pokemon.speed}
           />
-        {/* {
-          pokemon.stats.map(stat => {
-            return(
-              <div className={styles[`${stat.name}_container`]}>
-                <p>{stat.name}</p>
-                <p>{stat.base_state}</p>
-              </div>
-            )
-          })
-        } */}
         </div>
       </div>
       <div className={styles.container_img}>
-        {/* <div className={styles.medidor_container}>
+        <div className={styles.medidor_container}>
           <img className={styles.medidor_1} src={medidor_1} alt="medidor_1" />
-          <p className={styles.weight}>Weight - {pokemon.weight / 10} Kg</p>
-          <p className={styles.height}>Height - {pokemon.height * 10} Cm</p>
-        </div> */}
+          {pokemon.weight?<p className={styles.weight}>Weight - {pokemon.weight / 10} Kg</p>:<p className={styles.weight}>unknown</p>}
+          {pokemon.height?<p className={styles.height}>Height - {pokemon.height * 10} Cm</p>:<p className={styles.height}>unknown</p>}
+        </div>
         <img className={styles.img} src={pokemon.image} alt={pokemon.name} />
       </div>
     </div>

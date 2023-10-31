@@ -48,7 +48,15 @@
     animation: moveInfinite 13s linear infinite;
 }
 
+.info_name{
+    font-size: 2.5rem;
+    width: 100%;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
 .container_img{
+    position: relative;
     display: flex;
     width: 100%;
     height: 100%;
@@ -61,6 +69,35 @@
 
 .img{
     object-fit: contain;
-    width:100%;
+    width:70%;
     height: 100%;
+}
+
+.medidor_container{
+    position: relative;
+    height: auto;
+    width: 30%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.medidor_1{
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+}
+
+.medidor_container p{
+    position: absolute;
+}
+
+.weight{
+    bottom: 6%;
+}
+
+.height{
+    transform: rotate(-90deg);
+    left: -15%;
 }
