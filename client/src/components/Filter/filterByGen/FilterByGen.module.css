@@ -5,11 +5,8 @@
 }
 
 .containerGens{
-    display: flex;
     overflow: auto;
     width: 100%;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .containerGen{
@@ -43,51 +40,55 @@
 }
 
 .containerGen > button{
-    width: 7px;
+    width: 15px;
+    height: 15px;
     color: rgb(50, 0, 189);
-    background-color: transparent;
+    background-color: white;
     border: none;
-}
-
-.gensButton{
-    display: none;
+    border-radius: 50%;
 }
 
 @media(max-width:800px){
+
     .FilterByGen{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #207cf4;
         width: auto;
-        max-width: 200px;
-        height: 100vh;
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 30;
     }
 
     .containerGens{
-        align-items: center;
-        justify-content: flex-start;
-        gap: 1rem;
+        background-color: #66b359;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: auto;
+        height: 100vh;
+        z-index: 30;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .containerGens_active{
+        transition: all 0.3s ease-in-out;
+        visibility: visible;
+        opacity: 1;
     }
 
     .containerGen{
-        max-width: 150px;
-        height: 150px;
+        max-width: 50vw;
+        height: 100px;
     }
 
     .gamesImages{
         flex: 1;
+        width: 70%;
     }
 
     .gensButton{
-        display: initial;
-        margin: 0.5rem 0;
-        width: 40px;
-        height: 40px;
+        position: absolute;
+        bottom: 10px;
+        left: 5%;
+        width: 30px;
+        height: 30px;
+        z-index: 40;
     }
 }

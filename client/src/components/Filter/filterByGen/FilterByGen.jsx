@@ -35,6 +35,7 @@ const FilterByGen = () => {
     "eighthGen": 0,
     "ninthGen": 0,
   })
+  const [gensSlider, setGensSlider] = useState(false)
 
   const handleClickSlider = (event) => {
     const nameTarget = event.target.name;
@@ -57,14 +58,20 @@ const FilterByGen = () => {
     const nameTarget = event.target.name;
     dispatch(clearDataPokemons())
     if(nameTarget === "firstGen"){
+      setGensSlider(!gensSlider)
       return dispatch(getAllPokemons());
     }
+    setGensSlider(!gensSlider)
     dispatch(getPokemonGen(nameTarget))
+  }
+
+  const handleClickMenu = () => {
+    setGensSlider(!gensSlider)
   }
 
   return (
     <div className={styles.FilterByGen}>
-      <div className={styles.containerGens}>
+      <div className={gensSlider === true?`${styles.containerGens} ${styles.containerGens_active}`:styles.containerGens}>
         <div className={currentGen === "firstGen"?`${styles.firstGen} ${styles.containerGen} ${styles.containerGen_active}`:`${styles.firstGen} ${styles.containerGen}`}>
           <button name="prevButton" data-generation="firstGen" onClick={handleClickSlider}>{`<`}</button>
           <img className={styles.gamesImages} onClick={handleChangeSubmit} name="firstGen" src={`./utils/generationsGames/first gen/${generationArrays.firstGen[currentGame.firstGen]}.png`} alt={generationArrays.firstGen[currentGame]}/>
@@ -112,7 +119,7 @@ const FilterByGen = () => {
           <button name="nextButton" data-generation="ninthGen" onClick={handleClickSlider}>{`>`}</button>
         </div>
       </div>
-      <img className={styles.gensButton} src={gens} alt="generationButton" />
+      <img onClick={handleClickMenu} className={styles.gensButton} src={gens} alt="generationButton" />
     </div>
   )
 }
