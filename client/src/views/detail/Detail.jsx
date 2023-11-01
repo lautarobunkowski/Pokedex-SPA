@@ -47,13 +47,24 @@ const Detail = () => {
       <div className={styles.container_info}>
         <h1 className={styles.info_name}>{pokemon.name.toUpperCase()}</h1>
         <div className={styles.stats_container}>
-          <ProgressBarsDetail 
-          health={pokemon.health}
-          attack={pokemon.attack}
-          defense={pokemon.defense}
-          speed={pokemon.speed}
-          />
+          <ProgressBarsDetail health={pokemon.health} attack={pokemon.attack} defense={pokemon.defense} speed={pokemon.speed}/>
         </div>
+        {
+          pokemon.types.length > 1?
+          <div className={styles.types_pokemon}>
+            <div className={styles.types_pokemon1}>
+              <img src={`/utils/types_icons/${pokemon.types[0]}.svg`} alt="" />
+            </div>
+            <div className={styles.types_pokemon2}>
+            <img src={`/utils/types_icons/${pokemon.types[1]}.svg`} alt="" />
+            </div>
+          </div>:
+          <div className={styles.types_pokemon}>
+            <div className={styles.types_pokemon1}>
+              <img src={`/utils/types_icons/${pokemon.types[0]}.svg`} alt="" />
+            </div>
+          </div>
+        }
       </div>
       <div className={styles.container_img}>
         <div className={styles.medidor_container}>

@@ -62,7 +62,7 @@ const ProgressBarsDetail = ({health, attack, defense, speed}) => {
     }, []);
     
     return (
-        <>
+        <div className={style.containerBars}>
            <div className={style.valueBox}>
                 <div className={style.labelBox}>
                     <AiTwotoneHeart /> <span>{vidaShow}</span>
@@ -97,7 +97,7 @@ const ProgressBarsDetail = ({health, attack, defense, speed}) => {
                     <div className={style.progressBar} style={{'width': getPorcentaje(velocidadShow) }}></div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

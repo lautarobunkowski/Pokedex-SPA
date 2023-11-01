@@ -1,3 +1,7 @@
+.containerBars{
+    width: 100%;
+}
+
 .valueBox {
     display: flex;
     align-items: center;

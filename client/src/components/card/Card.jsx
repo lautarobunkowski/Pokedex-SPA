@@ -12,7 +12,6 @@ const Card = (props) => {
       <Link to={`/detail/${props.id}`} className={props.name.length > 10?`${styles.Link} ${styles.modifiedTitle}`:styles.Link}>
         <p>{props.name}</p>
       </Link>
-        
         {
           props.types.length > 1?
           <div className={styles.types_pokemon}>
@@ -32,6 +31,7 @@ const Card = (props) => {
             </div>
           </div>
         }
+        {props.created === false?<p className={styles.id}>#{props.id}</p>:null}
       </div>
     </div>
   )

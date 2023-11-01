@@ -38,6 +38,7 @@ const Cards = () => {
         {
           showPokemons.length >= 1?showPokemons.map(pokemon => {
             return <Card
+            created={pokemon.created}
             id={pokemon.id} 
             key={pokemon.id}
             name={pokemon.name}
