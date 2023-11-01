@@ -1,5 +1,5 @@
 // hooks -----------------------
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch} from "react-redux";
 import axios from "axios";
@@ -12,6 +12,8 @@ import ProgressBarsDetail from "./ProgressBarsDetail.jsx";
 // utils --------------------------------
 import getColorDetailByType from "./getColorDetailByType";
 import { cerrarNavbar } from "../../redux/actions";
+// icons ----------------------------------
+import { FaArrowLeft, FaArrowRight} from 'react-icons/fa';
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -19,7 +21,7 @@ const Detail = () => {
 
   const endpoint = "/pokemons/";
 
-  const [pokemon, setPokemon] = useState({}); 
+  const [pokemon, setPokemon] = useState({});
 
   useEffect(() => {
     const getPokemonById = async() => {
@@ -39,6 +41,11 @@ const Detail = () => {
       <Loader/>
     </div>:
     <div className={styles.Detail} onClick={() => dispatch(cerrarNavbar(false))}>
+      {Number(idPokemon) > 1?
+      <Link to={`/detail/${Number(idPokemon)-1}`}>
+        <button><FaArrowLeft/></button>
+      </Link>:
+      null}
       <div className={styles.background_detail} style={{
       background:`${getColorDetailByType(pokemon.types[0])}`
       }}>
@@ -74,6 +81,9 @@ const Detail = () => {
         </div>
         <img className={styles.img} src={pokemon.image} alt={pokemon.name} />
       </div>
+      <Link to={`/detail/${Number(idPokemon)+1}`}>
+        <button><FaArrowRight/></button>
+      </Link>
     </div>
   )
 }
