@@ -17,7 +17,7 @@ import {Routes, Route, useLocation} from 'react-router-dom'
 import { getPokemonTypes, getAllPokemons } from "./redux/actions";
 import axios from "axios";
 // axios.defaults.baseURL = "http://localhost:3001/"
-axios.defaults.baseURL = "https://pokedex-spa-production.up.railway.app/"
+axios.defaults.baseURL = "https://pokemon-spa-fvkn.onrender.com/"
 
 function App() {
   const dispatch = useDispatch();
